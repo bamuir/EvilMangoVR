@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Inspector
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 696}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -46,7 +46,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 696}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -120,10 +120,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 707, y: 492}
-  m_MaxSize: {x: 18002, y: 14042}
+  m_MinSize: {x: 709, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 80
+  controlID: 72
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,8 +143,8 @@ MonoBehaviour:
     y: 0
     width: 395
     height: 947
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 117
+  controlID: 73
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,8 +250,8 @@ MonoBehaviour:
     y: 0
     width: 559
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -331,8 +331,8 @@ MonoBehaviour:
     vZoomLockedByDefault: 0
     m_HBaseRangeMin: -482
     m_HBaseRangeMax: 482
-    m_VBaseRangeMin: -261
-    m_VBaseRangeMax: 261
+    m_VBaseRangeMin: -271.5
+    m_VBaseRangeMax: 271.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -349,11 +349,11 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 21
+      y: 0
       width: 964
-      height: 522
+      height: 543
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 482, y: 261}
+    m_Translation: {x: 482, y: 271.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -361,9 +361,9 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -482
-      y: -261
+      y: -271.5
       width: 964
-      height: 522
+      height: 543
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 964, y: 543}
@@ -402,7 +402,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: a214fdff3647fdff98e8fdff60f1fdffc834feff8636feff003ffefffe5efeff0261feff8462feff6c69feffe071feffbe74feff44d8feffd80bffffca32ffff2c35ffffc03bffff703dffffc84fffff4c67ffff8067ffffe4acffff08adffff42adffff44adffffe4e1ffff6c9e0000a0c7e2220000803f
+      m_ExpandedIDs: 5aebffffdaf3ffffaef5ffff36fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -462,9 +462,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 19.768269, y: 6.0522923, z: 1.4621173}
+    m_Target: {x: -6.8750815, y: -3.2641773, z: -5.443666}
     speed: 2
-    m_Value: {x: 19.768269, y: 6.0522923, z: 1.4621173}
+    m_Value: {x: -6.8750815, y: -3.2641773, z: -5.443666}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -511,13 +511,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.21457672, y: 0.6465193, z: -0.19714625, w: -0.7043893}
+    m_Target: {x: -0.0866535, y: 0.7252383, z: -0.093416214, w: -0.6759091}
     speed: 2
-    m_Value: {x: -0.21438141, y: 0.6478793, z: -0.19756064, w: -0.7037491}
+    m_Value: {x: -0.08683438, y: 0.72456455, z: -0.09333003, w: -0.6773149}
   m_Size:
-    m_Target: 19.78469
+    m_Target: 34.849777
     speed: 2
-    m_Value: 18.932718
+    m_Value: 33.349068
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -605,21 +605,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/AurynSky/Arcades Pack 02/Prefabs
+    - Assets/Scenes
     m_Globs: []
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/AurynSky/Arcades Pack 02/Prefabs
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\bamui\Repos\CS5360_VR\EvilMangoVR\Sip And Puff Arcade
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 14e70000
-    m_LastClickedID: 59156
-    m_ExpandedIDs: 00000000ba4e0000be4e0000365f0000c25f000032640000eae60000f8e60000
+    m_SelectedIDs: c2440000
+    m_LastClickedID: 17602
+    m_ExpandedIDs: 00000000a0440000a2440000a4440000a6440000a8440000d2440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -647,7 +647,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ba4e0000bc4e0000be4e0000
+    m_ExpandedIDs: 00000000a0440000a2440000a4440000a6440000a8440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
