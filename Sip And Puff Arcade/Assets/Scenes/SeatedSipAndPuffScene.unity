@@ -240,38 +240,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AirhockeyGame
       objectReference: {fileID: 0}
-    - target: {fileID: 6264247205520058227, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
-      propertyPath: teleportType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6264247205520058227, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
-      propertyPath: switchToScene
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6264247205520058227, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
-      propertyPath: title
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6264247205530961809, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6264247205530961809, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 6264247205531078159, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.032
-      objectReference: {fileID: 0}
-    - target: {fileID: 6264247205531263569, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6264247205531418773, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
 --- !u!1001 &1804697068
