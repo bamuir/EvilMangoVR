@@ -192,6 +192,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1081995356, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: m_Constraints
+      value: 124
+      objectReference: {fileID: 0}
     - target: {fileID: 49983529112756136, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15
@@ -239,6 +243,10 @@ PrefabInstance:
     - target: {fileID: 149341235312048289, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
       propertyPath: m_Name
       value: AirhockeyGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716557159501454136, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: trackingSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46523de79097e574b909e2b8e20f5727, type: 3}

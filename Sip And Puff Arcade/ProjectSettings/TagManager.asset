@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Striker
   - Puck
+  - AirHockeyTable
   layers:
   - Default
   - TransparentFX
