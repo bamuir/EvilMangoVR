@@ -7,11 +7,18 @@ public class PuckMovement : MonoBehaviour
 {
     public GameObject puck;
     public Material defaultMat;
-    public float minSpeed = 1;
+    public float maxSpeed = 3;
     public float acceleration = 1.001f;
     public float startSpeed = 2;
+    public GameObject goal1;
+    public GameObject goal2;
+    public GameObject gameBoundary;
+    public Material OOBMat;
+    public GameObject table;
     private Rigidbody p;
     private Vector3 puckStart;
+    private float oobTimer = 0;
+    private bool oob = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,19 +27,33 @@ public class PuckMovement : MonoBehaviour
         puckStart = puck.transform.position;
         p = puck.GetComponent<Rigidbody>();
         p.velocity = RandomVector(new Vector3(-1,0,-1), new Vector3(1,0,1));
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        p.AddExplosionForce(0.1f, puckStart, 10, 0, ForceMode.Acceleration);
     }
 
     private void LateUpdate()
     {
-        if(p.velocity.magnitude < minSpeed)
+        if(p.velocity.magnitude > maxSpeed)
         {
-            p.AddForce(p.velocity.normalized * acceleration, ForceMode.Acceleration);
+            Vector3.ClampMagnitude(p.velocity, maxSpeed);
+        }
+        if(!gameBoundary.GetComponent<BoxCollider>().bounds.Contains(puck.transform.position) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            oob = true;
+            ChangeTableColor(OOBMat);
+            p.velocity = new Vector3(0, 0, 0);
+            puck.transform.position = puckStart;
+        }
+        if (oob)
+        {
+            oobTimer += Time.deltaTime;
+            if (oobTimer > 1)
+            {
+                oob = false;
+                puck.GetComponent<PuckMovement>().GameReset();
+                oobTimer = 0;
+                ChangeTableColor(defaultMat);
+                GameReset();
+            }
         }
     }
 
@@ -41,7 +62,7 @@ public class PuckMovement : MonoBehaviour
         return new Vector3(UnityEngine.Random.Range(min.x, max.x), 0, UnityEngine.Random.Range(min.z, max.z)).normalized * startSpeed;
     }
 
-    public void Reset()
+    public void GameReset()
     {
         puck.transform.position = puckStart;
         p.velocity = RandomVector(new Vector3(-1, 0, -1), new Vector3(1, 0, 1));
@@ -53,5 +74,54 @@ public class PuckMovement : MonoBehaviour
         Material[] mat = gameObject.GetComponent<MeshRenderer>().materials;
         mat[1] = m;
         gameObject.GetComponent<MeshRenderer>().materials = mat;
+    }
+    
+    private float Distance(GameObject a, GameObject b)
+    {
+        return Mathf.Abs((a.transform.localPosition - b.transform.localPosition).magnitude);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.gameObject.CompareTag("Striker"))
+        {
+            Vector3 direction = (puck.transform.position - collision.collider.gameObject.transform.position).normalized;
+            p.AddForce(direction * 2, ForceMode.VelocityChange);
+        }
+        else if(collision.collider.gameObject.CompareTag("AirHockeyBumper"))
+        {
+            Vector3 delta = gameObject.transform.position - collision.GetContact(0).point;
+            p.AddForce(delta.normalized * 4, ForceMode.VelocityChange);
+        }
+        if (p.velocity.magnitude > maxSpeed)
+        {
+            p.velocity = Vector3.ClampMagnitude(p.velocity, maxSpeed);
+        }
+
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.gameObject.CompareTag("Striker"))
+        {
+            Vector3 direction = (puck.transform.position - collision.collider.gameObject.transform.position).normalized;
+            p.AddForce(direction * 2, ForceMode.VelocityChange);
+        }
+        else if (collision.collider.gameObject.CompareTag("AirHockeyBumper"))
+        {
+            Vector3 delta = gameObject.transform.position - collision.GetContact(0).point;
+            p.AddForce(delta.normalized * 4, ForceMode.VelocityChange);
+        }
+        if (p.velocity.magnitude > maxSpeed)
+        {
+            p.velocity = Vector3.ClampMagnitude(p.velocity, maxSpeed);
+        }
+
+    }
+    private void ChangeTableColor(Material m)
+    {
+        Material[] mat = table.GetComponent<MeshRenderer>().materials;
+        mat[0] = m;
+        table.GetComponent<MeshRenderer>().materials = mat;
     }
 }
