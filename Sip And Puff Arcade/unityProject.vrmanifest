@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.newunityproject.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\bamui\\Repos\\CS5360_VR\\EvilMangoVR\\Sip And Puff Arcade\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "D:\\samhi\\Developer\\EvilMangoVR\\Sip And Puff Arcade\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "New Unity Project [Testing]"

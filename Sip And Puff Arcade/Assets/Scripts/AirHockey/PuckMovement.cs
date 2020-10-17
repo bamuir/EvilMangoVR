@@ -36,7 +36,7 @@ public class PuckMovement : MonoBehaviour
         {
             Vector3.ClampMagnitude(p.velocity, maxSpeed);
         }
-        if(!gameBoundary.GetComponent<BoxCollider>().bounds.Contains(puck.transform.position) || Input.GetKeyDown(KeyCode.DownArrow))
+        if(!gameBoundary.GetComponent<BoxCollider>().bounds.Contains(puck.transform.position) || TranslationLayer.instance.GetButtonDown(ButtonCode.KeyBack))
         {
             oob = true;
             ChangeTableColor(OOBMat);

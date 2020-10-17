@@ -37,7 +37,7 @@ public class GameSwitch : MonoBehaviour
     void Update()
     {
         // Sip simulation
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyLeft))
         {
             gameindex = mod(gameindex - 1, 6);
             Player.transform.position = gamelist[gameindex].transform.position;
@@ -53,7 +53,7 @@ public class GameSwitch : MonoBehaviour
         }
 
         // Puff
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyRight))
         {
             gameindex = mod(gameindex + 1, 6);
             Player.transform.position = gamelist[gameindex].transform.position;

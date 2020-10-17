@@ -160,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795086331276059328, guid: 32edc48609401da41b1334634ea2507a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1795086331276059328, guid: 32edc48609401da41b1334634ea2507a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -348,7 +348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -381,6 +381,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 107946, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
   m_PrefabInstance: {fileID: 1804697068}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1804697070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804697069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b00954cc74bd44549b932870e9397752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: 2
+  forwardPressed:
+    actionPath: /actions/default/in/KeyPressForward
+    needsReinit: 0
+  rightPressed:
+    actionPath: /actions/default/in/KeyPressRight
+    needsReinit: 0
+  leftPressed:
+    actionPath: /actions/default/in/KeyPressLeft
+    needsReinit: 0
+  backPressed:
+    actionPath: /actions/default/in/KeyPressBack
+    needsReinit: 0
 --- !u!1 &1922283214
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1922283215}
+  - component: {fileID: 1922283216}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -409,8 +435,21 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1922283216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922283214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a01e4bc8e6b2b944296948d93a93d486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VRAdapter: {fileID: 1804697070}
 --- !u!1 &2071171490
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7021227418823429449, guid: e4642ee5c4d8fa148ad9d386e8e14d24, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7021227418823429449, guid: e4642ee5c4d8fa148ad9d386e8e14d24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -597,7 +636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1795086331276059328, guid: 32edc48609401da41b1334634ea2507a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1795086331276059328, guid: 32edc48609401da41b1334634ea2507a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
