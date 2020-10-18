@@ -12,6 +12,7 @@ public class GameSwitch : MonoBehaviour
     public GameObject Game4;
     public GameObject Game5;
     public GameObject Game6;
+    public bool inGame;
 
     private int gameindex;
 
@@ -21,6 +22,8 @@ public class GameSwitch : MonoBehaviour
     {
         // Start at spawnb
         gameindex = 0;
+
+        inGame = false;
 
         // Add all games to list
         gamelist = new Dictionary<int, GameObject>();
@@ -37,7 +40,7 @@ public class GameSwitch : MonoBehaviour
     void Update()
     {
         // Sip simulation
-        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyLeft))
+        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyLeft) && !inGame)
         {
             gameindex = mod(gameindex - 1, 6);
             Player.transform.position = gamelist[gameindex].transform.position;
@@ -53,7 +56,7 @@ public class GameSwitch : MonoBehaviour
         }
 
         // Puff
-        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyRight))
+        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyRight) && !inGame)
         {
             gameindex = mod(gameindex + 1, 6);
             Player.transform.position = gamelist[gameindex].transform.position;
