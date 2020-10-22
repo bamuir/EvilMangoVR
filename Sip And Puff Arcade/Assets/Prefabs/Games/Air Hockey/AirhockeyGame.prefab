@@ -889,6 +889,7 @@ MonoBehaviour:
   gameBoundary: {fileID: 8455555587427069511}
   OOBMat: {fileID: 2100000, guid: ffb16021b15e621479d32fc3a8c0cdeb, type: 2}
   table: {fileID: 8147173348490423858}
+  state: 2
 --- !u!1 &7777394196265269808
 GameObject:
   m_ObjectHideFlags: 0
