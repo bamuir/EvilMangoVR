@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameSwitch : MonoBehaviour
 {
@@ -68,6 +69,48 @@ public class GameSwitch : MonoBehaviour
 
         }
 
+        // Enter Game
+        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyFoward))
+        {
+            switch(gameindex)
+            {
+                case 0:
+                    break;
+
+                case 1:
+                    // load airhockey
+                    SceneManager.LoadScene("Breakout_AirHockey", LoadSceneMode.Single);
+                    break;
+
+                case 2:
+                    // load pinball
+                    SceneManager.LoadScene("Breakout_Pinball", LoadSceneMode.Single);
+                    break;
+
+                case 3:
+                    // load Arcade Cabinent
+                    SceneManager.LoadScene("Breakout_Arcade", LoadSceneMode.Single);
+                    break;
+
+                case 4:
+                    // load cranegame
+                    SceneManager.LoadScene("Breakout_CraneGame", LoadSceneMode.Single);
+                    break;
+
+                case 5:
+                    // load snake
+                    SceneManager.LoadScene("Breakout_Snake", LoadSceneMode.Single);
+                    break;
+
+                case 6:
+                    // load shooting gallery
+                    SceneManager.LoadScene("Breakout_ShootingGallery", LoadSceneMode.Single);
+                    break;
+
+                default:
+                    break;
+            }
+        }
     }
 
     // An always positive mod
