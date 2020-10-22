@@ -27,7 +27,6 @@ public class PuckMovement : MonoBehaviour
         puckStart = puck.transform.position;
         p = puck.GetComponent<Rigidbody>();
         p.velocity = RandomVector(new Vector3(-1,0,-1), new Vector3(1,0,1));
-        p.AddExplosionForce(0.1f, puckStart, 10, 0, ForceMode.Acceleration);
     }
 
     private void LateUpdate()
@@ -54,6 +53,10 @@ public class PuckMovement : MonoBehaviour
                 ChangeTableColor(defaultMat);
                 GameReset();
             }
+        }
+        if(Mathf.Abs(p.velocity.z)<0.2 || p.velocity.magnitude < 1)
+        {
+            p.AddExplosionForce(0.05f, puckStart, 10, 0, ForceMode.Acceleration);
         }
     }
 
