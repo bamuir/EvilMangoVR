@@ -25,6 +25,11 @@ public class TranslationLayer : MonoBehaviour
         TranslationLayer.instance = this;
     }
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     /**
      * Returns true in the frame where the button is pressed
      */

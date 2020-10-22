@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Breakouts/Breakout_AirHockey.unity
     guid: ae021dd543bbd984ca8c7c51f4bfd085
   - enabled: 1
-    path: Assets/Scenes/Breakouts/Breakout_Arcade.unity
+    path: Assets/Scenes/Breakouts/Breakout_ArcadeCabinet.unity
     guid: f12001043c571ce4489eacd90d977f28
   - enabled: 1
     path: Assets/Scenes/Breakouts/Breakout_CraneGame.unity
