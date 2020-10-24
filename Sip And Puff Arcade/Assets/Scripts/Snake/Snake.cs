@@ -7,23 +7,26 @@ using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
-    private Vector2 start;
-    private Vector2 gridPos;
-    private float gridMoveTimer;
-    private float gridMoveTimerMax;
+    // where the snake head should start and where it is currently
+    private Vector2 snakeStart; 
+    private Vector2 snakePos; 
 
-    private Vector2 gridMoveDir;
+    // keeps track of time for movement
+    private float moveTimer; 
+    private float timePerMove;
+
+    private Vector2 moveDirection;
 
    private void Awake()
     {
-        gridPos = new Vector2(0, 0);
-        start = new Vector2(5, 2.5f);
+        snakePos = new Vector2(0, 0);
+        snakeStart = new Vector2(5, 2.5f);
         pos_to_screen();
 
-        gridMoveTimerMax = 1f;
-        gridMoveTimer = gridMoveTimerMax;
+        timePerMove = 1f;
+        moveTimer = timePerMove;
 
-        gridMoveDir = new Vector2(0.05f, 0);
+        moveDirection = new Vector2(0.05f, 0);
 
     }
 
@@ -32,45 +35,53 @@ public class Snake : MonoBehaviour
 
         if (TranslationLayer.instance.GetButton(ButtonCode.KeyLeft))
         {
-            gridMoveDir.y = 0;
-            gridMoveDir.x = -0.05f;
+            moveDirection.y = 0;
+            moveDirection.x = -0.05f;
 
         }
         else if (TranslationLayer.instance.GetButton(ButtonCode.KeyRight))
         {
-            gridMoveDir.y = 0;
-            gridMoveDir.x = 0.05f;
+            moveDirection.y = 0;
+            moveDirection.x = 0.05f;
         }
         else if (TranslationLayer.instance.GetButton(ButtonCode.KeyFoward))
         {
-            gridMoveDir.y = 0.05f;
-            gridMoveDir.x = 0;
+            moveDirection.y = 0.05f;
+            moveDirection.x = 0;
         }
         else if (TranslationLayer.instance.GetButton(ButtonCode.KeyBack))
         {
-            gridMoveDir.y = -0.05f;
-            gridMoveDir.x = 0;
+            moveDirection.y = -0.05f;
+            moveDirection.x = 0;
         }
 
-        gridMoveTimer += Time.deltaTime;
+        // increase move timer
+        moveTimer += Time.deltaTime;
 
-        if(gridMoveTimer >= gridMoveTimerMax)
+        // update snake posisition once per timePerMove
+        if(moveTimer >= timePerMove)
         {
-            gridPos += gridMoveDir;
-            gridMoveTimer -= gridMoveTimerMax;
+            snakePos += moveDirection;
+            moveTimer -= timePerMove;
         }
-        transform.position = new Vector3(gridPos.x, gridPos.y, 6.49f);
+
+        // update snake position in Unity
+        transform.position = new Vector3(snakePos.x, snakePos.y, 6.475f);
 
     }
 
+    /**
+     * Translates the position to the Unity. Used just in case things need to be moved in game.
+     * Start value can be updated if we move the screen, arcade machine, etc.
+     */
     private void pos_to_screen()
     {
 
-        float x = (gridPos.x / 400) + start.x;
-        float y = (gridPos.y / 400) + start.y;
+        float x = (snakePos.x / 400) + snakeStart.x;
+        float y = (snakePos.y / 400) + snakeStart.y;
 
-        gridPos.x = x;
-        gridPos.y = y;
+        snakePos.x = x;
+        snakePos.y = y;
 
     }
 }
