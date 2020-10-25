@@ -7,17 +7,14 @@ using System.Globalization;
 
 public class GameHandler : MonoBehaviour
 {
+    [SerializeField] private Snake snake;
+    [SerializeField] private Grid grid;
     // Start is called before the first frame update
     void Start()
     {
+        snake.Setup(grid);
         
-        GameObject snakeHeadGameObject = new GameObject();
-        SpriteRenderer snakeSpriteRenderer = snakeHeadGameObject.AddComponent<SpriteRenderer>();
-        snakeSpriteRenderer.sprite = GameAssets.i.snakeHeadSprite;
-
-        Debug.Log(snakeSpriteRenderer);
-
-
+        grid.Setup(snake);
     }
 
     // Update is called once per frame
