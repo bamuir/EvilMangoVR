@@ -8,6 +8,7 @@ using UnityEngine;
 using CodeMonkey;
 using CodeMonkey.Utils;
 using System;
+using System.CodeDom;
 
 public class Snake : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class Snake : MonoBehaviour
 
     private int snakeBodySize;
     private List<Vector2> prevPositionList;
+    private List<Transform> bodyList;
 
     private float speed = 0.25f;
     private float negSpeed = -0.25f;
@@ -45,7 +47,7 @@ public class Snake : MonoBehaviour
         snakeStart = new Vector2(33, 2);
         pos_to_screen();
 
-        timePerMove = 0.35f;
+        timePerMove = 0.25f;
         moveTimer = timePerMove;
 
         // starts off moving to the right.
@@ -56,9 +58,7 @@ public class Snake : MonoBehaviour
         prevPositionList = new List<Vector2>();
         snakeBodySize = 0;
 
-        
-
-        
+        bodyList = new List<Transform>();
 
     }
 
@@ -144,6 +144,7 @@ public class Snake : MonoBehaviour
             if (snakeAte)
             {
                 snakeBodySize++;
+                makeBody();
                 
             }
 
@@ -153,22 +154,18 @@ public class Snake : MonoBehaviour
                 prevPositionList.RemoveAt(snakeBodySize);
             }
 
-            for(int i = 0; i < prevPositionList.Count; i++)
-            {
-                Vector2 hold = prevPositionList[i];
-                World_Sprite worldSprite =  World_Sprite.Create(new Vector3(hold.x, hold.y, zDim), Vector3.one * .04f, Color.white);
-                FunctionTimer.Create(worldSprite.DestroySelf, timePerMove);
-            }
-
             holdList = new List<Vector2>() { snakePos };
             holdList.AddRange(prevPositionList);
 
             grid.SnakeBodyPos(holdList);
 
+            for (int i = 0; i < bodyList.Count; i++)
+            {
+                Vector3 bodyPos = new Vector3(prevPositionList[i].x, prevPositionList[i].y, zDim);
+                bodyList[i].position = bodyPos;
+            }
+
         }
-
-
-
 
         // update snake position in Unity
         transform.position = new Vector3(snakePos.x, snakePos.y, zDim);
@@ -192,6 +189,16 @@ public class Snake : MonoBehaviour
 
         snakePos.x = x;
         snakePos.y = y;
+
+    }
+
+    private void makeBody()
+    {
+        GameObject snakeBody = new GameObject("Body", typeof(SpriteRenderer));
+        
+        snakeBody.GetComponent<SpriteRenderer>().sprite = GameAssets.i.Body;
+        snakeBody.layer = 8;
+        bodyList.Add(snakeBody.transform);
 
     }
 
