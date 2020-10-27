@@ -185,11 +185,18 @@ public class Snake : MonoBehaviour
             }
         }
 
-        if (snakePos.x > snakeStart.x + 2.75)
+        if (Math.Abs(snakePos.x - snakeStart.x) > 2.75)
+        {
             Alive = false;
+            return;
+        }
 
-        if (snakePos.y > snakeStart.y + 2.75)
+        if (Math.Abs(snakePos.y - snakeStart.y) > 2.75)
+        {
             Alive = false;
+            return;
+        }
+        
 
 
         // update snake position in Unity
