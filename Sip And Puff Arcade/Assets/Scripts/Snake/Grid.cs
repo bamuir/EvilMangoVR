@@ -12,14 +12,14 @@ public class Grid : MonoBehaviour
     private Vector2 foodPos;
     // width and height of our screen
     private int width = 20;
-    private int height = 21;
+    private int height = 20;
     // the position of our snake.
     private Vector2 snakePosition;
     // the z dim of our screen in unity.
-    private float zDim = 6.475f;
+    private float zDim = 5;
     // represent the min, max of the bounds for the snake screen.
-    private Vector2 sideBound = new Vector2(4.5f, 5.5f);
-    private Vector2 upBound = new Vector2(2f, 3.1f);
+    private Vector2 sideBound = new Vector2(30.5f, 35.5f);
+    private Vector2 upBound = new Vector2(-0.5f, 5.5f);
     private Snake snake;
     private List<Vector2> snakeBodyPos;
  
@@ -51,7 +51,7 @@ public class Grid : MonoBehaviour
         do
         {
             Vector2 randPos = new Vector2(UnityEngine.Random.Range(0, width), UnityEngine.Random.Range(0, height));
-            foodPos = new Vector2(randPos.x * 0.05f + sideBound.x, randPos.y * 0.05f + upBound.x);
+            foodPos = new Vector2(randPos.x * 0.25f + sideBound.x, randPos.y * 0.25f + upBound.x);
         } while (snakeBodyPos.IndexOf(foodPos) != -1);
        
 

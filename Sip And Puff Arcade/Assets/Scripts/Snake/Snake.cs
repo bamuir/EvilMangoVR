@@ -26,12 +26,15 @@ public class Snake : MonoBehaviour
     private bool canMove;
 
     // the z dim of our screen in unity.
-    private float zDim = 6.475f;
+    private float zDim = 5;
 
     private int snakeBodySize;
     private List<Vector2> prevPositionList;
-    
-   public void Setup(Grid grid)
+
+    private float speed = 0.25f;
+    private float negSpeed = -0.25f;
+
+    public void Setup(Grid grid)
     {
         this.grid = grid;
     }
@@ -39,19 +42,21 @@ public class Snake : MonoBehaviour
    private void Awake()
     {
         snakePos = new Vector2(0, 0);
-        snakeStart = new Vector2(5, 2.5f);
+        snakeStart = new Vector2(33, 2);
         pos_to_screen();
 
         timePerMove = 0.35f;
         moveTimer = timePerMove;
 
         // starts off moving to the right.
-        moveDirection = new Vector2(0.05f, 0);
+        moveDirection = new Vector2(speed, 0);
 
         canMove = true;
 
         prevPositionList = new List<Vector2>();
         snakeBodySize = 0;
+
+        
 
         
 
@@ -61,45 +66,48 @@ public class Snake : MonoBehaviour
     {
         Movement();
         HandleTime();
+
+        
     }
 
     private void Movement()
     {
+
         // change the direction of the snake if it isnt moving back on itself
         // and its direction has been updated by HandleTime().
         if (TranslationLayer.instance.GetButton(ButtonCode.KeyLeft))
         {
-            if (moveDirection.x != 0.05f && canMove)
+            if (moveDirection.x != speed && canMove)
             {
                 moveDirection.y = 0;
-                moveDirection.x = -0.05f;
+                moveDirection.x = speed * -1;
                 canMove = false;
             }
 
         }
         else if (TranslationLayer.instance.GetButton(ButtonCode.KeyRight))
         {
-            if (moveDirection.x != -0.05f && canMove)
+            if (moveDirection.x != negSpeed && canMove)
             {
                 moveDirection.y = 0;
-                moveDirection.x = 0.05f;
+                moveDirection.x = speed;
                 canMove = false;
             }
         }
         else if (TranslationLayer.instance.GetButton(ButtonCode.KeyFoward))
         {
-            if (moveDirection.y != -0.05f && canMove)
+            if (moveDirection.y != negSpeed && canMove)
             {
-                moveDirection.y = 0.05f;
+                moveDirection.y = speed;
                 moveDirection.x = 0;
                 canMove = false;
             }
         }
         else if (TranslationLayer.instance.GetButton(ButtonCode.KeyBack))
         {
-            if (moveDirection.y != 0.05f && canMove)
+            if (moveDirection.y != speed && canMove)
             {
-                moveDirection.y = -0.05f;
+                moveDirection.y = -1 * speed;
                 moveDirection.x = 0;
                 canMove = false;
             }
@@ -158,12 +166,13 @@ public class Snake : MonoBehaviour
             grid.SnakeBodyPos(holdList);
 
         }
-        
-        
+
+
 
 
         // update snake position in Unity
         transform.position = new Vector3(snakePos.x, snakePos.y, zDim);
+
 
         // send position of snake to our Grid class and receive if the snake has ate.
         snakeAte = grid.SnakeAte(snakePos);
