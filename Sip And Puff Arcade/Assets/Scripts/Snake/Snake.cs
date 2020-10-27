@@ -5,8 +5,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using UnityEngine;
-using CodeMonkey;
-using CodeMonkey.Utils;
+using UnityEngine;
 using System;
 using System.CodeDom;
 
@@ -36,6 +35,8 @@ public class Snake : MonoBehaviour
     private float speed = 0.25f;
     private float negSpeed = -0.25f;
 
+    private bool Alive;
+
     public void Setup(Grid grid)
     {
         this.grid = grid;
@@ -43,6 +44,8 @@ public class Snake : MonoBehaviour
 
    private void Awake()
     {
+
+        Alive = true;
         snakePos = new Vector2(0, 0);
         snakeStart = new Vector2(33, 2);
         pos_to_screen();
@@ -60,13 +63,17 @@ public class Snake : MonoBehaviour
 
         bodyList = new List<Transform>();
 
+
+
     }
 
     private void Update()
     {
-        Movement();
-        HandleTime();
-
+        if (Alive)
+        {
+            Movement();
+            HandleTime();
+        }
         
     }
 
@@ -166,6 +173,21 @@ public class Snake : MonoBehaviour
             }
 
         }
+
+        foreach (Vector2 bodyPart in prevPositionList)
+        {
+            if (snakePos == bodyPart)
+            {
+                Alive = false;
+            }
+        }
+
+        if (snakePos.x > snakeStart.x + 2.75)
+            Alive = false;
+
+        if (snakePos.y > snakeStart.y + 2.75)
+            Alive = false;
+
 
         // update snake position in Unity
         transform.position = new Vector3(snakePos.x, snakePos.y, zDim);

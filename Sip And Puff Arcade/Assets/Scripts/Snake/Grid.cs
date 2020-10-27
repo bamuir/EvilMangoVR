@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
-using CodeMonkey;
-using CodeMonkey.Utils;
 using System.Diagnostics;
 
 public class Grid : MonoBehaviour
@@ -46,7 +44,6 @@ public class Grid : MonoBehaviour
 
     private void SpawnFood()
     {
-        UnityEngine.Debug.Log(snakeBodyPos.Count);
         // spawn food in a new location on screen if it isnt in the same position as our snake.
         do
         {
