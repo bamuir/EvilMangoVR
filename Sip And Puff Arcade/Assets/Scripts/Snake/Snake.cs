@@ -50,7 +50,7 @@ public class Snake : MonoBehaviour
         snakeStart = new Vector2(33, 2);
         pos_to_screen();
 
-        timePerMove = 0.25f;
+        timePerMove = 0.2f;
         moveTimer = timePerMove;
 
         // starts off moving to the right.
@@ -74,6 +74,9 @@ public class Snake : MonoBehaviour
             Movement();
             HandleTime();
         }
+
+        else
+            GameHandler.setDead();
         
     }
 
@@ -216,11 +219,13 @@ public class Snake : MonoBehaviour
 
     private void makeBody()
     {
-        GameObject snakeBody = new GameObject("Body", typeof(SpriteRenderer));
+
+            GameObject snakeBody = new GameObject("Body", typeof(SpriteRenderer));
+
+            snakeBody.GetComponent<SpriteRenderer>().sprite = GameAssets.i.Body;
+            snakeBody.layer = 8;
+            bodyList.Add(snakeBody.transform);
         
-        snakeBody.GetComponent<SpriteRenderer>().sprite = GameAssets.i.Body;
-        snakeBody.layer = 8;
-        bodyList.Add(snakeBody.transform);
 
     }
 

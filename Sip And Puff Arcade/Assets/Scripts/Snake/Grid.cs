@@ -54,6 +54,12 @@ public class Grid : MonoBehaviour
 
         // update food position in Unity
         transform.position = new Vector3(foodPos.x, foodPos.y, zDim);
+
+        // update score
+        GameHandler.IncreaseScore();
+
+        // update length
+        GameHandler.IncreaseLength();
     }
 
     public bool SnakeAte(Vector2 snakePos)
