@@ -7,10 +7,8 @@ TagManager:
   - Striker
   - Puck
   - AirHockeyTable
-  - projectile
-  - FxTemporaire
-  - AirHockeyBumper
   - Enemy
+  - Potion
   layers:
   - Default
   - TransparentFX
@@ -20,7 +18,6 @@ TagManager:
   - UI
   - 
   - 
-  - Screen
   - craneBoxLayer
   - 
   - 
@@ -46,12 +43,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 394521233
-    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Over
-    uniqueID: 2508214071
     locked: 0
