@@ -15,6 +15,12 @@ public class PuckMovement : MonoBehaviour
     public GameObject gameBoundary;
     public Material OOBMat;
     public GameObject table;
+    public enum PuckState
+    {
+        green, red, blue
+    };
+    
+    private PuckState state;
     private Rigidbody p;
     private Vector3 puckStart;
     private float oobTimer = 0;
@@ -26,6 +32,7 @@ public class PuckMovement : MonoBehaviour
         SetColor(defaultMat);
         puckStart = puck.transform.position;
         p = puck.GetComponent<Rigidbody>();
+        state = PuckState.blue;
         p.velocity = RandomVector(new Vector3(-1,0,-1), new Vector3(1,0,1));
     }
 
@@ -58,6 +65,14 @@ public class PuckMovement : MonoBehaviour
         {
             p.AddExplosionForce(0.05f, puckStart, 10, 0, ForceMode.Acceleration);
         }
+        if(state == PuckState.green)
+        {
+            p.AddForce(new Vector3(0 , 0, -0.2f));
+        }
+        else if(state == PuckState.red)
+        {
+            p.AddForce(new Vector3(0, 0, 0.2f));
+        }
     }
 
     private Vector3 RandomVector(Vector3 min, Vector4 max)
@@ -70,6 +85,7 @@ public class PuckMovement : MonoBehaviour
         puck.transform.position = puckStart;
         p.velocity = RandomVector(new Vector3(-1, 0, -1), new Vector3(1, 0, 1));
         SetColor(defaultMat);
+        state = PuckState.blue;
     }
 
     private void SetColor(Material m)
@@ -100,7 +116,21 @@ public class PuckMovement : MonoBehaviour
         {
             p.velocity = Vector3.ClampMagnitude(p.velocity, maxSpeed);
         }
-
+        if (collision.collider.gameObject.CompareTag("Striker"))
+        {
+            if(collision.collider.gameObject.name.CompareTo("EnemyStriker") == 0)
+            {
+                state = PuckState.red;
+            }
+            else
+            {
+                state = PuckState.green;
+            }
+            Material[] mat = gameObject.GetComponent<MeshRenderer>().materials;
+            mat[1] = collision.collider.gameObject.GetComponent<MeshRenderer>().material;
+            gameObject.GetComponent<MeshRenderer>().materials = mat;
+            gameObject.GetComponent<Rigidbody>().AddForce((collision.collider.gameObject.transform.position - gameObject.transform.position).normalized * 2.0f);
+        }
     }
 
     private void OnCollisionStay(Collision collision)
