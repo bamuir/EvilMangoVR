@@ -547,27 +547,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4642ee5c4d8fa148ad9d386e8e14d24, type: 3}
---- !u!1001 &7323940230849549192
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7323940230897754142, guid: d1a0f6bfb27171243a69955e20bd655d, type: 3}
-      propertyPath: m_Name
-      value: ArcadeCabinet
-      objectReference: {fileID: 0}
-    - target: {fileID: 7323940231036304380, guid: d1a0f6bfb27171243a69955e20bd655d, type: 3}
-      propertyPath: m_Name
-      value: ShootingGallery
-      objectReference: {fileID: 0}
-    - target: {fileID: 7323940231189273544, guid: d1a0f6bfb27171243a69955e20bd655d, type: 3}
-      propertyPath: m_Name
-      value: Snake
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 32edc48609401da41b1334634ea2507a, type: 3}
 --- !u!1001 &6443624351489539242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -609,7 +588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6443624351781915237, guid: 77ae0165949d0354b926a759cf765891, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6443624351781915237, guid: 77ae0165949d0354b926a759cf765891, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -782,64 +761,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7323940230897754142, guid: d1a0f6bfb27171243a69955e20bd655d, type: 3}
   m_PrefabInstance: {fileID: 7323940230849549192}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &7367294908679412742
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7367294909997574856, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_Name
-      value: _GM
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574857, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574857, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574857, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574857, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574857, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574857, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574857, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574857, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574857, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574857, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574857, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7367294909997574870, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
-      propertyPath: VRAdapter
-      value: 
-      objectReference: {fileID: 1804697070}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 22c26f584bf7813428e2108dee3c501c, type: 3}
