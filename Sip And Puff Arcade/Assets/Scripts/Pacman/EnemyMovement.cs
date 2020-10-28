@@ -13,10 +13,23 @@ public class EnemyMovement : MonoBehaviour
     Vector2 direction;
     Animator animator;
 
+    Vector3 startingPosition;
+
+    //float time = 0.0f;
+    //bool dead = false;
+
+    
+
+    private void Awake()
+    {
+        RespawnEnemy.Reset += ResetWaypoint;
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        startingPosition = gameObject.transform.position;
     }
 
     void FixedUpdate()
@@ -38,11 +51,13 @@ public class EnemyMovement : MonoBehaviour
         GetComponent<Animator>().SetFloat("DirY", direction.y);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void ResetWaypoint(GameObject enemy)
     {
-        if (other.CompareTag("Player"))
+        if (enemy == gameObject)
         {
-            other.gameObject.SetActive(false);
+            currentPoint = 0;
+            gameObject.transform.position = startingPosition;
+            gameObject.SetActive(true);
         }
     }
 
