@@ -7,10 +7,8 @@ TagManager:
   - Striker
   - Puck
   - AirHockeyTable
-  - projectile
-  - FxTemporaire
-  - AirHockeyBumper
   - Enemy
+  - Potion
   layers:
   - Default
   - TransparentFX
@@ -20,7 +18,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - craneBoxLayer
   - 
   - 
   - 
