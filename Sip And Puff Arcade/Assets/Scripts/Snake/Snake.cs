@@ -50,7 +50,7 @@ public class Snake : MonoBehaviour
         snakeStart = new Vector2(33, 2);
         pos_to_screen();
 
-        timePerMove = 0.2f;
+        timePerMove = 0.1f;
         moveTimer = timePerMove;
 
         // starts off moving to the right.

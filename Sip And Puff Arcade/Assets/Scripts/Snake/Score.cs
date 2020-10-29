@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32.SafeHandles;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Globalization;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class Score : MonoBehaviour
     {
         score = transform.Find("Score").GetComponent<Text>();
         length = transform.Find("Length").GetComponent<Text>();
+        
 
     }
 
