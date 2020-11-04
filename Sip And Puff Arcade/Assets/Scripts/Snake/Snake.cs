@@ -19,6 +19,9 @@ public class Snake : MonoBehaviour
     // keeps track of time for movement
     private float moveTimer; 
     private float timePerMove;
+    private float countTime;
+
+    private int countNum;
 
     private Vector2 moveDirection;
 
@@ -37,6 +40,8 @@ public class Snake : MonoBehaviour
 
     private bool Alive;
 
+    private bool selectIsOnStart;
+
     public void Setup(Grid grid)
     {
         this.grid = grid;
@@ -49,9 +54,12 @@ public class Snake : MonoBehaviour
         snakePos = new Vector2(0, 0);
         snakeStart = new Vector2(33, 2);
         pos_to_screen();
-
+        selectIsOnStart = true;
         timePerMove = 0.1f;
+        countTime = 1;
         moveTimer = timePerMove;
+        countNum = 3;
+
 
         // starts off moving to the right.
         moveDirection = new Vector2(speed, 0);
@@ -69,15 +77,88 @@ public class Snake : MonoBehaviour
 
     private void Update()
     {
-        if (Alive)
+        if(GameHandler.getAtMenu())
+        {
+            Menu();
+        }
+
+        else if(GameHandler.getCount())
+        {
+            CountDown();
+        }
+
+        // if the snake is alive and the game has started.
+        else if (Alive)
         {
             Movement();
             HandleTime();
         }
 
-        else
+        else if(!Alive)
             GameHandler.setDead();
         
+    }
+
+    private void CountDown()
+    {
+        moveTimer += Time.deltaTime;
+
+        if(moveTimer >= countTime)
+        {
+            if (countNum == 0)
+            {
+                GameHandler.setCountBool(false);
+                moveTimer = timePerMove;
+                Score.CountDown(0);
+                return;
+            }
+
+            Score.CountDown(countNum);
+            countNum--;
+            moveTimer -= countTime;
+        }
+
+
+    }
+
+    // control for the start menu.
+    private void Menu()
+    {
+        // increase move timer
+        moveTimer += Time.deltaTime;
+
+        if (moveTimer >= timePerMove)
+        {
+            if (TranslationLayer.instance.GetButton(ButtonCode.KeyLeft))
+            {
+                selectIsOnStart = !selectIsOnStart;
+                Score.MoveSelection(selectIsOnStart);
+            }
+
+            else if (TranslationLayer.instance.GetButton(ButtonCode.KeyRight))
+            {
+                selectIsOnStart = !selectIsOnStart;
+                Score.MoveSelection(selectIsOnStart);
+            }
+
+            else if (TranslationLayer.instance.GetButton(ButtonCode.KeyFoward))
+            {
+                if (selectIsOnStart)
+                {
+                    grid.SpawnFood();
+                    GameHandler.StartGame();
+                    moveTimer = countTime;
+                    return;
+                }
+            }
+
+            else if (TranslationLayer.instance.GetButton(ButtonCode.KeyBack))
+            {
+               
+            }
+
+            moveTimer -= timePerMove;
+        }
     }
 
     private void Movement()
@@ -113,6 +194,7 @@ public class Snake : MonoBehaviour
                 canMove = false;
             }
         }
+       
         else if (TranslationLayer.instance.GetButton(ButtonCode.KeyBack))
         {
             if (moveDirection.y != speed && canMove)
@@ -122,8 +204,6 @@ public class Snake : MonoBehaviour
                 canMove = false;
             }
         }
-
-       
 
     }
 

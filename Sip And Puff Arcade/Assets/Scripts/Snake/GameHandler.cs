@@ -9,6 +9,8 @@ public class GameHandler : MonoBehaviour
     private static int score;
     private static int length;
     private static bool alive;
+    private static bool atMenu;
+    private static bool count;
 
     private void Awake()
     {
@@ -16,6 +18,7 @@ public class GameHandler : MonoBehaviour
         score = 0;
         length = 0;
         alive = true;
+        atMenu = true;
     }
 
     [SerializeField] private Snake snake;
@@ -62,6 +65,27 @@ public class GameHandler : MonoBehaviour
     public static void setDead()
     {
         alive = false;
+    }
+
+    public static void StartGame()
+    {
+        atMenu = false;
+        count = true;
+    }
+
+    public static bool getAtMenu()
+    {
+        return atMenu;
+    }
+
+    public static void setCountBool(bool done)
+    {
+        count = done;
+    }
+
+    public static bool getCount()
+    {
+        return count;
     }
 
 

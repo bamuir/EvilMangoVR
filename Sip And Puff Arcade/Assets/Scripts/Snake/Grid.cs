@@ -33,7 +33,7 @@ public class Grid : MonoBehaviour
         snakeBodyPos = new List<Vector2>();
 
         // update food position in Unity
-        SpawnFood();
+        //SpawnFood();
        
     }
 
@@ -42,7 +42,7 @@ public class Grid : MonoBehaviour
         
     }
 
-    private void SpawnFood()
+    public void SpawnFood()
     {
         // spawn food in a new location on screen if it isnt in the same position as our snake.
         do
@@ -55,11 +55,7 @@ public class Grid : MonoBehaviour
         // update food position in Unity
         transform.position = new Vector3(foodPos.x, foodPos.y, zDim);
 
-        // update score
-        GameHandler.IncreaseScore();
-
-        // update length
-        GameHandler.IncreaseLength();
+        
     }
 
     public bool SnakeAte(Vector2 snakePos)
@@ -70,6 +66,12 @@ public class Grid : MonoBehaviour
         if (snakePos == foodPos)
         {
             SpawnFood();
+
+            // update score
+            GameHandler.IncreaseScore();
+
+            // update length
+            GameHandler.IncreaseLength();
             return true;
         }
 
