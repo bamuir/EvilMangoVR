@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -11,16 +12,20 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
-    private Text score;
-    private Text length;
-    private Text startButton;
-    private Text difficultyButton;
-    private Text snakeLabel;
+    private static Text score;
+    private static Text length;
+    private static Text startButton;
+    private static Text difficultyButton;
+    private static Text snakeLabel;
     private static Text count;
+    private static Text speedLabel;
+    private static Text speed;
 
 
-    private Image start;
+    private static Image start;
     private static Image selection;
+
+    private static int speedNum;
     
     
 
@@ -32,11 +37,18 @@ public class Score : MonoBehaviour
         difficultyButton = transform.Find("DiffButton").GetComponent<Text>();
         count = transform.Find("Countdown").GetComponent<Text>();
         snakeLabel = transform.Find("SnakeLabel").GetComponent<Text>();
+        speedLabel = transform.Find("SpeedLabel").GetComponent<Text>();
+        speed = transform.Find("Speed").GetComponent<Text>();
 
         start = transform.Find("Start").GetComponent<Image>();
         selection = transform.Find("Selection").GetComponent<Image>();
 
         count.enabled = false;
+        speed.enabled = false;
+        speedLabel.enabled = false;
+
+        speedNum = 5;
+        
     }
 
     private void Update()
@@ -70,6 +82,7 @@ public class Score : MonoBehaviour
             int zero = 0;
             score.text = "GAME OVER :(";
             length.text = zero.ToString();
+            GameHandler.setAlive();
         }
 
 
@@ -98,5 +111,46 @@ public class Score : MonoBehaviour
         count.enabled = true;
         count.transform.position = new Vector3(35, 3, 0);
         count.text = num.ToString();
+    }
+
+    public static bool SetSpeed(int i)
+    {
+        bool changed = false;
+
+        // if speed is from 0-10, change it.
+        if (speedNum + i < 11 && speedNum + i > -1)
+        {
+            speedNum += i;
+            changed = true;
+        }
+
+        speed.text = speedNum.ToString();
+
+        return changed;
+        
+    }
+
+    public static void BringBackMenu()
+    {
+        start.enabled = true;
+        selection.enabled = true;
+        startButton.enabled = true;
+        difficultyButton.enabled = true;
+        snakeLabel.enabled = true;
+
+        speed.enabled = false;
+        speedLabel.enabled = false;
+
+    }
+
+    public static void DifficultyMenu()
+    {
+        speed.enabled = true;
+        speedLabel.enabled = true;
+        selection.enabled = false;
+        startButton.enabled = false;
+        difficultyButton.enabled = false;
+        speed.transform.position = new Vector3(36.5f, 1.8f, 0);
+        speedLabel.transform.position = new Vector3(33.5f, 1.8f, 0);
     }
 }

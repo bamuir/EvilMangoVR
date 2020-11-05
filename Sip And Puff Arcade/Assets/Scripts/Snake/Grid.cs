@@ -85,6 +85,11 @@ public class Grid : MonoBehaviour
        
     }
 
+    public void HideFood()
+    {
+        transform.position = new Vector3(0, 0, 0);
+    }
+
     
 }
 

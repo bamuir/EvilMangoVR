@@ -67,15 +67,26 @@ public class GameHandler : MonoBehaviour
         alive = false;
     }
 
+    public static void setAlive()
+    {
+        alive = true;
+    }
+
     public static void StartGame()
     {
         atMenu = false;
         count = true;
+        alive = true;
     }
 
     public static bool getAtMenu()
     {
         return atMenu;
+    }
+
+    public static void setAtMenu()
+    {
+        atMenu = true;
     }
 
     public static void setCountBool(bool done)
@@ -87,6 +98,16 @@ public class GameHandler : MonoBehaviour
     {
         return count;
     }
+
+    public static void reset()
+    {
+        score = 0;
+        length = 0;
+        alive = true;
+        atMenu = true;
+    }
+
+
 
 
 }

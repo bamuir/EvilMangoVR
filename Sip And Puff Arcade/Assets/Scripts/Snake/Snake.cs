@@ -20,6 +20,8 @@ public class Snake : MonoBehaviour
     private float moveTimer; 
     private float timePerMove;
     private float countTime;
+    private float gameOverTime;
+    private float menuTime;
 
     private int countNum;
 
@@ -41,6 +43,7 @@ public class Snake : MonoBehaviour
     private bool Alive;
 
     private bool selectIsOnStart;
+    private bool inDifMenu;
 
     public void Setup(Grid grid)
     {
@@ -55,10 +58,13 @@ public class Snake : MonoBehaviour
         snakeStart = new Vector2(33, 2);
         pos_to_screen();
         selectIsOnStart = true;
-        timePerMove = 0.1f;
+        inDifMenu = false;
+        timePerMove = 0.125f;
+        menuTime = 0.25f;
         countTime = 1;
-        moveTimer = timePerMove;
+        moveTimer = menuTime;
         countNum = 3;
+        gameOverTime = 2.5f;
 
 
         // starts off moving to the right.
@@ -77,12 +83,12 @@ public class Snake : MonoBehaviour
 
     private void Update()
     {
-        if(GameHandler.getAtMenu())
+        if (GameHandler.getAtMenu())
         {
             Menu();
         }
 
-        else if(GameHandler.getCount())
+        else if (GameHandler.getCount())
         {
             CountDown();
         }
@@ -94,11 +100,27 @@ public class Snake : MonoBehaviour
             HandleTime();
         }
 
-        else if(!Alive)
+        else if (!Alive)
+        {
             GameHandler.setDead();
+            GameOver();
+        }
         
     }
+    private void GameOver()
+    {
+        moveTimer += Time.deltaTime;
 
+        if (moveTimer >= gameOverTime)
+        {
+            GameHandler.reset();
+            Score.BringBackMenu();
+            transform.position = new Vector3(0, 0, 0);
+            grid.HideFood();
+            deleteBody();
+            Awake();
+        }
+    }
     private void CountDown()
     {
         moveTimer += Time.deltaTime;
@@ -127,28 +149,61 @@ public class Snake : MonoBehaviour
         // increase move timer
         moveTimer += Time.deltaTime;
 
-        if (moveTimer >= timePerMove)
+        if (moveTimer >= menuTime)
         {
             if (TranslationLayer.instance.GetButton(ButtonCode.KeyLeft))
             {
-                selectIsOnStart = !selectIsOnStart;
-                Score.MoveSelection(selectIsOnStart);
+                if (!inDifMenu)
+                {
+                    selectIsOnStart = !selectIsOnStart;
+                    Score.MoveSelection(selectIsOnStart);
+                }
+
+                else
+                {
+                    if (Score.SetSpeed(-1))
+                        timePerMove += .015f;
+                }
             }
 
             else if (TranslationLayer.instance.GetButton(ButtonCode.KeyRight))
             {
-                selectIsOnStart = !selectIsOnStart;
-                Score.MoveSelection(selectIsOnStart);
+                if (!inDifMenu)
+                {
+                    selectIsOnStart = !selectIsOnStart;
+                    Score.MoveSelection(selectIsOnStart);
+                }
+
+                else
+                {
+                    if (Score.SetSpeed(1))
+                        timePerMove -= .015f;
+                }
             }
 
             else if (TranslationLayer.instance.GetButton(ButtonCode.KeyFoward))
             {
-                if (selectIsOnStart)
+                // if user selected start
+                if (selectIsOnStart && !inDifMenu)
                 {
                     grid.SpawnFood();
                     GameHandler.StartGame();
                     moveTimer = countTime;
                     return;
+                }
+
+                // if user selected difficulty
+                else if (!inDifMenu)
+                {
+                    Score.DifficultyMenu();
+                    inDifMenu = true;
+                }
+
+                // if user wants to exit difficulty menu.
+                else
+                {
+                    inDifMenu = false;
+                    Score.BringBackMenu();
                 }
             }
 
@@ -157,7 +212,7 @@ public class Snake : MonoBehaviour
                
             }
 
-            moveTimer -= timePerMove;
+            moveTimer = 0;
         }
     }
 
@@ -308,12 +363,18 @@ public class Snake : MonoBehaviour
     {
 
             GameObject snakeBody = new GameObject("Body", typeof(SpriteRenderer));
-
             snakeBody.GetComponent<SpriteRenderer>().sprite = GameAssets.i.Body;
             snakeBody.layer = 8;
             bodyList.Add(snakeBody.transform);
-        
 
+    }
+
+    private void deleteBody()
+    {
+        foreach(Transform b in bodyList)
+        {
+            Destroy(b.gameObject);
+        }
     }
 
 }
