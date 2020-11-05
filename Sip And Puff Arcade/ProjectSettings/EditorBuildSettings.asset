@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Breakouts/Breakout_ShootingGallery.unity
     guid: 1d179bef10ff20f47a0c8b67abdbbeae
   - enabled: 1
-    path: Assets/Scenes/Breakouts/Snake/Breakout_Snake.unity
+    path: Assets/Scenes/Breakouts/Breakout_Snake.unity
     guid: 3f4e58a70afac8a47bd6849b17a22dfb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: de6bd3223b603f04bac544c9f7a0a93f, type: 2}
