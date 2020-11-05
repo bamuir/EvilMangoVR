@@ -60,7 +60,7 @@ public class Snake : MonoBehaviour
         selectIsOnStart = true;
         inDifMenu = false;
         timePerMove = 0.125f;
-        menuTime = 0.25f;
+        menuTime = 0.1f;
         countTime = 1;
         moveTimer = menuTime;
         countNum = 3;
@@ -115,6 +115,7 @@ public class Snake : MonoBehaviour
         {
             GameHandler.reset();
             Score.BringBackMenu();
+            Score.ResetSpeed();
             transform.position = new Vector3(0, 0, 0);
             grid.HideFood();
             deleteBody();
@@ -212,7 +213,7 @@ public class Snake : MonoBehaviour
                
             }
 
-            moveTimer = 0;
+            moveTimer -= menuTime;
         }
     }
 

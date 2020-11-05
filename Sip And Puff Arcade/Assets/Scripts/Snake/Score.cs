@@ -130,6 +130,12 @@ public class Score : MonoBehaviour
         
     }
 
+    public static void ResetSpeed()
+    {
+        speedNum = 5;
+        speed.text = 5.ToString();
+    }
+
     public static void BringBackMenu()
     {
         start.enabled = true;
