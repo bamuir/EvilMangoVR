@@ -6,26 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SeatedSipAndPuffScene.unity
-    guid: f0d7678c6d206c744af857215f640f2e
+    path: Assets/Scenes/RedoneArcade/RedoneArcade.unity
+    guid: 4cb30b60398bca3449503d3341f0ad0e
   - enabled: 1
-    path: Assets/Scenes/Breakouts/Breakout_AirHockey.unity
-    guid: ae021dd543bbd984ca8c7c51f4bfd085
+    path: Assets/Scenes/RedoneArcade/RedoneBreakouts/Airhockey.unity
+    guid: c6f3c0fd299f4e040b2cc12fd72b4d19
   - enabled: 1
-    path: Assets/Scenes/Breakouts/Breakout_ArcadeCabinet.unity
-    guid: f12001043c571ce4489eacd90d977f28
+    path: Assets/Scenes/RedoneArcade/RedoneBreakouts/CraneGame.unity
+    guid: c420e929aed5da84d80a5bf9d847739c
   - enabled: 1
-    path: Assets/Scenes/Breakouts/Breakout_CraneGame.unity
-    guid: 41c2662b46cf0504394ccb6af688e934
+    path: Assets/Scenes/RedoneArcade/RedoneBreakouts/PacMan.unity
+    guid: ff1e17e5af2fbfa488eaa2ca7d507958
   - enabled: 1
-    path: Assets/Scenes/Breakouts/Breakout_Pinball.unity
-    guid: f9c910abbff4ac2409466a1e4547bdd2
+    path: Assets/Scenes/RedoneArcade/RedoneBreakouts/Pinball.unity
+    guid: ad2ec1adfe92a514c820f42138a330c9
   - enabled: 1
-    path: Assets/Scenes/Breakouts/Breakout_ShootingGallery.unity
-    guid: 1d179bef10ff20f47a0c8b67abdbbeae
+    path: Assets/Scenes/RedoneArcade/RedoneBreakouts/Snake.unity
+    guid: fee7cca6917b1834794d25d1a6901b42
   - enabled: 1
-    path: Assets/Scenes/Breakouts/Breakout_Snake.unity
-    guid: 3f4e58a70afac8a47bd6849b17a22dfb
+    path: Assets/Scenes/RedoneArcade/RedoneBreakouts/TicketBooth.unity
+    guid: 2b5cbee2df718d2408676350a1397d22
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: de6bd3223b603f04bac544c9f7a0a93f, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 270e5fe592388e74aae5dee509bfaf55, type: 2}

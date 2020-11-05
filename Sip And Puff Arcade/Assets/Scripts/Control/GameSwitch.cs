@@ -9,10 +9,10 @@ public class GameSwitch : MonoBehaviour
     public GameObject Spawn;
     public GameObject Airhockey;
     public GameObject Pinball;
-    public GameObject ArcadeCabinet;
+    public GameObject PacMan;
     public GameObject CraneGame;
     public GameObject Snake;
-    public GameObject ShootingGallery;
+    public GameObject TicketBooth;
 
     private int gameindex;
 
@@ -28,10 +28,10 @@ public class GameSwitch : MonoBehaviour
         gamelist.Add(0, Spawn);
         gamelist.Add(1, Airhockey);
         gamelist.Add(2, Pinball);
-        gamelist.Add(3, ArcadeCabinet);
+        gamelist.Add(3, PacMan);
         gamelist.Add(4, CraneGame);
         gamelist.Add(5, Snake);
-        gamelist.Add(6, ShootingGallery);
+        gamelist.Add(6, TicketBooth);
     }
 
     // Update is called once per frame
