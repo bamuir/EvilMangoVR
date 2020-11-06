@@ -11,6 +11,9 @@ TagManager:
   - FxTemporaire
   - AirHockeyBumper
   - Enemy
+  - ClawSurface
+  - BlueDoll
+  - GreenFish
   layers:
   - Default
   - TransparentFX
