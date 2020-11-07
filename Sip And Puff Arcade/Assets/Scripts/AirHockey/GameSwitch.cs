@@ -40,7 +40,7 @@ public class GameSwitch : MonoBehaviour
         // Sip simulation
         if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyLeft))
         {
-            gameindex = mod(gameindex - 1, 6);
+            gameindex = mod(gameindex - 1, 7);
             Player.transform.position = gamelist[gameindex].transform.position;
             Vector3 newPos = gamelist[gameindex].transform.eulerAngles;
 
@@ -56,7 +56,7 @@ public class GameSwitch : MonoBehaviour
         // Puff
         if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyRight))
         {
-            gameindex = mod(gameindex + 1, 6);
+            gameindex = mod(gameindex + 1, 7);
             Player.transform.position = gamelist[gameindex].transform.position;
             Vector3 newPos = gamelist[gameindex].transform.eulerAngles;
 
