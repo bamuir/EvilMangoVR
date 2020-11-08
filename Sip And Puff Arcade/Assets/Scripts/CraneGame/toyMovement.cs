@@ -5,16 +5,22 @@ using UnityEngine;
 public class toyMovement : MonoBehaviour
 {
 
-    public GameObject craneGameBounds;
     public GameObject toyObj;
     public FixedJoint fixedJoint;
     public GameObject clawObj;
+    public GameObject craneGameBox;
+
     public bool clawGrab;
-    
+    public float yLowerBound;
+    public Vector3 toyStartPos;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        yLowerBound = (craneGameBox.transform.localPosition.y - (float)(craneGameBox.GetComponent<BoxCollider>().size.y / 2.0));
+        toyStartPos = toyObj.transform.localPosition;
+
 
     }
 
@@ -43,6 +49,7 @@ public class toyMovement : MonoBehaviour
         //    CreateFixedJoint();
         //}
 
+        ResetToyPosCheck();
         if (toyObj.GetComponent<FixedJoint>())
         {
             toyObj.GetComponent<Rigidbody>().mass = 0;
@@ -79,32 +86,11 @@ public class toyMovement : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-
-        if (toyObj.transform.localPosition.y ==
-         craneGameBounds.GetComponent<BoxCollider>().bounds.min.y)
-        {
-            toyObj.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        }
-
-        if (Input.GetKey(KeyCode.Tab) && collision.collider.tag == clawObj.tag)
-        {
-            clawGrab = true;
-        }
-
-        //print("Collision is happening with :" + toyObj.tag);
-
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-
-
-
-        //other.transform.localPosition = new Vector3(-0.05749f, yLowerNorm, -0.0825f);
-
-        //if(!craneGameBounds.GetComponent<BoxCollider>().bounds.Contains(other))
-
-        //  print("OnTriggerExit called by: " + other.tag);
 
     }
 
@@ -116,7 +102,7 @@ public class toyMovement : MonoBehaviour
             CreateFixedJoint();
         }
 
-        print("OnTriggerEnter called by: " + other.tag);
+       // print("OnTriggerEnter called by: " + other.tag);
 
     }
 
@@ -125,7 +111,6 @@ public class toyMovement : MonoBehaviour
         fixedJoint = toyObj.AddComponent<FixedJoint>();
         fixedJoint.connectedBody = clawObj.GetComponent<Rigidbody>();
         fixedJoint.anchor = clawObj.transform.localPosition;
-       // fixedJoint.axis = Vector3.forward;
 
         print("Fixed Joint made for " + toyObj.tag);
     }
@@ -136,13 +121,22 @@ public class toyMovement : MonoBehaviour
         toyObj.GetComponent<Rigidbody>().mass = 1f;
         toyObj.GetComponent<Rigidbody>().useGravity = true;
         toyObj.GetComponent<Rigidbody>().velocity = new Vector3(0, -0.0001f, 0);
-        toyObj.GetComponent<Rigidbody>().rotation = Quaternion.identity;
+        toyObj.GetComponent<Rigidbody>().angularVelocity = new Vector3(0,0, 0.0001f); 
 
 
         clawObj.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
         clawObj.GetComponent<Rigidbody>().mass = 0;
 
 
+    }
+
+    private void ResetToyPosCheck()
+    {
+        if(toyObj.transform.localPosition.y < yLowerBound - (float)0.03)
+        {
+            toyObj.transform.localPosition = toyStartPos;
+            print("Toy is out of machine");
+        }
     }
 
 

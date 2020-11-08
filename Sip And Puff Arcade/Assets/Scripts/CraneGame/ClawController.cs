@@ -30,7 +30,6 @@ public class ClawController : MonoBehaviour
     void Update()
     {
          
-
         CraneAdjustInBounds();
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -56,9 +55,6 @@ public class ClawController : MonoBehaviour
         {
             this.transform.Translate(new Vector3(0f, -2f, 0f) * Time.deltaTime);
         }
-
-       
-
 
     }
 
