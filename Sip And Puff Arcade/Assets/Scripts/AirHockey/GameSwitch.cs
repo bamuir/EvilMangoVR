@@ -21,7 +21,7 @@ public class GameSwitch : MonoBehaviour
     private void Start()
     {
         // Start at spawnb
-        gameindex = 0;
+        gameindex = 2;
 
         inGame = false;
 
@@ -34,6 +34,16 @@ public class GameSwitch : MonoBehaviour
         gamelist.Add(4, Game4);
         gamelist.Add(5, Game5);
         gamelist.Add(6, Game6);
+
+        Player.transform.position = gamelist[gameindex].transform.position;
+        Vector3 newPos = gamelist[gameindex].transform.eulerAngles;
+
+        // set rotation and flip 180
+        Player.transform.eulerAngles = new Vector3(
+            newPos.x,
+            newPos.y + 180,
+            newPos.z
+            );
     }
 
     // Update is called once per frame
