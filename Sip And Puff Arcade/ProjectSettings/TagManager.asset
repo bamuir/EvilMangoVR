@@ -12,6 +12,8 @@ TagManager:
   - PinballFlipper
   - PinballBumper
   - PinballCushion
+  - Enemy
+  - Potion
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - craneBoxLayer
   - 
   - 
   - 
