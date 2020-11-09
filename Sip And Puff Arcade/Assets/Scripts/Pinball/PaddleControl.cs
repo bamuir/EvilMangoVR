@@ -48,7 +48,7 @@ public class PaddleControl : MonoBehaviour
 
         if (state == RotationState.Up)
         {
-            float a = 810 * Time.deltaTime;
+            float a = 990 * Time.deltaTime;
             currentRotationAmount += a;
             Quaternion q = Quaternion.AngleAxis(a * (dir == Direction.Clockwise ? 1 : -1), rotationAxis);
             rigidBody.MoveRotation(q * rigidBody.transform.rotation);

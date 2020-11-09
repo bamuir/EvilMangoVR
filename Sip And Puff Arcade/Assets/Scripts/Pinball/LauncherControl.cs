@@ -29,7 +29,8 @@ public class LauncherControl : MonoBehaviour
             }
         } else if (moved > 0.0f)
         {
-            float moving = Math.Min(speedFactor * 30f, moved);
+            // applies a linear acceleration
+            float moving = Math.Min(speedFactor * 30f * (2f - moved / MAX_MOVE), moved);
             moved -= moving;
             rigidBody.MovePosition(rigidBody.position - Vector3.forward * moving);
         }

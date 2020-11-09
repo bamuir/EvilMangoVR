@@ -10,6 +10,8 @@ TagManager:
   - AirHockeyBumper
   - PinballBall
   - PinballFlipper
+  - PinballBumper
+  - PinballCushion
   layers:
   - Default
   - TransparentFX

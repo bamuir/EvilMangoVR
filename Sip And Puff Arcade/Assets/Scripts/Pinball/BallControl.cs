@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class BallControl : MonoBehaviour
 {
     private Vector3 startPosition;
     private Rigidbody rb;
+    private Queue<Task> tasks = new Queue<Task>();
     // Start is called before the first frame update
     void Start()
     {
@@ -18,18 +21,51 @@ public class BallControl : MonoBehaviour
     {
         if (TranslationLayer.instance.GetButton(ButtonCode.KeyBack) && TranslationLayer.instance.GetButton(ButtonCode.KeyFoward))
         {
-            transform.position = startPosition;
-            rb.velocity = Vector3.zero;
+            ResetPosition();
+        }
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.name == "ResetTrigger")
+        {
+            Invoke(nameof(ResetPosition), 0.5f);
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("PinballFlipper"))
+        if (collision.gameObject.CompareTag("PinballBumper"))
         {
-            // rb.AddForce(collision.impulse, ForceMode.Impulse);
-            Debug.Log("rebounding");
-            rb.AddForce((collision.collider.gameObject.transform.position - gameObject.transform.position).normalized * 2);
+            // reverse velocity and accelerate
+            Vector3 difference = collision.gameObject.transform.position - transform.position;
+            rb.AddForce(difference.normalized * 5, ForceMode.VelocityChange);
+            collision.gameObject.GetComponent<SetBumperColor>().Collide();
         }
+
+        if (collision.gameObject.CompareTag("PinballCushion"))
+        {
+            Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
+            float speedInDirection = Vector3.Project(rb.velocity, direction).magnitude;
+            if (speedInDirection >= 0.75f)
+            {
+                rb.AddForce(direction * -2, ForceMode.VelocityChange);
+                collision.gameObject.GetComponent<SetBumperColor>().Collide();
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("PinballCushion") || collision.gameObject.CompareTag("PinballBumper"))
+        {
+            collision.gameObject.GetComponent<SetBumperColor>().ScheduleReset();
+        }
+    }
+
+    void ResetPosition()
+    {
+        transform.position = startPosition;
+        rb.velocity = Vector3.zero;
     }
 }
