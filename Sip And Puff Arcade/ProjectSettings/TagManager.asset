@@ -7,6 +7,9 @@ TagManager:
   - Striker
   - Puck
   - AirHockeyTable
+  - AirHockeyBumper
+  - PinballBall
+  - PinballFlipper
   layers:
   - Default
   - TransparentFX

@@ -8,17 +8,19 @@ public class PaddleControl : MonoBehaviour
     public GameObject target;
 
     private Vector3 rotationAxis;
-    private RotationState state;
+    public RotationState state { get; private set; }
     private float currentRotationAmount = 0.0f;
     public Direction dir;
     private Rigidbody rigidBody;
+    private Vector3 initialPos;
+    private Quaternion initialRot;
 
     public enum Direction
     {
         Clockwise,
         CounterClockwise
     }
-    private enum RotationState
+    public enum RotationState
     {
         Up,
         Down,
@@ -32,6 +34,8 @@ public class PaddleControl : MonoBehaviour
         rotationAxis = new Vector3(r.eulerAngles.x, r.eulerAngles.y, r.eulerAngles.z + transform.eulerAngles.z);
         state = RotationState.Rest;
         rigidBody = GetComponent<Rigidbody>();
+        initialPos = transform.position;
+        initialRot = transform.rotation;
     }
 
     // Update is called once per frame
@@ -46,7 +50,10 @@ public class PaddleControl : MonoBehaviour
         {
             float a = 810 * Time.deltaTime;
             currentRotationAmount += a;
-            rigidBody.transform.RotateAround(target.transform.position, rotationAxis, a * (dir == Direction.Clockwise ? 1 : -1));
+            Quaternion q = Quaternion.AngleAxis(a * (dir == Direction.Clockwise ? 1 : -1), rotationAxis);
+            rigidBody.MoveRotation(q * rigidBody.transform.rotation);
+            rigidBody.MovePosition(q * (rigidBody.transform.position - target.transform.position) + target.transform.position);
+            // transform.RotateAround(target.transform.position, rotationAxis, a * (dir == Direction.Clockwise ? 1 : -1));
             if (currentRotationAmount >= 90)
             {
                 state = RotationState.Down;
@@ -58,11 +65,20 @@ public class PaddleControl : MonoBehaviour
             currentRotationAmount += a;
             if (currentRotationAmount <= 0)
             {
-                state = RotationState.Rest;
                 a -= currentRotationAmount;
                 currentRotationAmount = 0;
+                state = RotationState.Rest;
+                // reset position and rotation
+                rigidBody.MoveRotation(initialRot);
+                rigidBody.MovePosition(initialPos);
             }
-            rigidBody.transform.RotateAround(target.transform.position, rotationAxis, a * (dir == Direction.Clockwise ? 1 : -1));
+            else
+            {
+                Quaternion q = Quaternion.AngleAxis(a * (dir == Direction.Clockwise ? 1 : -1), rotationAxis);
+                rigidBody.MoveRotation(q * rigidBody.transform.rotation);
+                rigidBody.MovePosition(q * (rigidBody.transform.position - target.transform.position) + target.transform.position);
+            }
+            // transform.RotateAround(target.transform.position, rotationAxis, a * (dir == Direction.Clockwise ? 1 : -1));
         }
     }
 }
