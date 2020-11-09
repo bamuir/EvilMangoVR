@@ -24,7 +24,7 @@ public class prizeBoxImpact : MonoBehaviour
         Vector3 toyObjAngVel = collision.gameObject.GetComponent<Rigidbody>().angularVelocity;
         toyObjVelVec = new Vector3(toyObjVelVec.x, toyObjVelVec.y, toyObjVelVec.z + (float)0.2);
 
-        collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 200);
+        collision.gameObject.GetComponent<Rigidbody>().AddForce(transform.right * 200);
 
         print(collision.gameObject.tag + " has collided with prize floor");
 

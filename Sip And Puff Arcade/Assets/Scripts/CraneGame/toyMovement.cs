@@ -132,12 +132,22 @@ public class toyMovement : MonoBehaviour
 
     private void ResetToyPosCheck()
     {
-        if(toyObj.transform.localPosition.y < yLowerBound - (float)0.03)
+        if(toyObj.transform.localPosition.y < yLowerBound - (float)0.009)
         {
+
+          //  WaitTime(3);
             toyObj.transform.localPosition = toyStartPos;
+            toyObj.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            toyObj.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
             print("Toy is out of machine");
+
         }
     }
+
+    //IEnumerator WaitTime(int time)
+    //{
+    //    yield return new WaitForSeconds(time);
+    //}
 
 
 
