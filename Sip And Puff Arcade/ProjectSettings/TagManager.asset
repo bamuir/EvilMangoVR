@@ -9,6 +9,11 @@ TagManager:
   - AirHockeyTable
   - Enemy
   - Potion
+  - AirHockeyBumper
+  - PinballBall
+  - PinballFlipper
+  - PinballBumper
+  - PinballCushion
   layers:
   - Default
   - TransparentFX
