@@ -23,9 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AlphaArcade/GameBreakouts/Airhockey.unity
     guid: 384fb8403383e5a4a8a6c289431fb999
-  - enabled: 1
-    path: Assets/Scenes/AlphaArcade/GameBreakouts/ABaseToStart.unity
-    guid: 3205d6c6272fe6f48bdea0a727bb1f0c
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: de6bd3223b603f04bac544c9f7a0a93f, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 270e5fe592388e74aae5dee509bfaf55, type: 2}

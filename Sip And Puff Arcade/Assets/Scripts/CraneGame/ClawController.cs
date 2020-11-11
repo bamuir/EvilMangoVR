@@ -31,27 +31,27 @@ public class ClawController : MonoBehaviour
     {
          
         CraneAdjustInBounds();
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (TranslationLayer.instance.GetButton(ButtonCode.KeyLeft))
         {
             this.transform.Translate (new Vector3 (2f, 0f, 0f) * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (TranslationLayer.instance.GetButton(ButtonCode.KeyRight))
         {
             this.transform.Translate(new Vector3(-2f, 0f, 0f) * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (TranslationLayer.instance.GetButton(ButtonCode.KeyBack))
         {
             this.transform.Translate(new Vector3(0f, 0f, 2f) * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.UpArrow) )
+        else if (TranslationLayer.instance.GetButton(ButtonCode.KeyFoward))
         {
             this.transform.Translate(new Vector3(0f, 0f, -2f) * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.W) )
+        else if (TranslationLayer.instance.GetButton(ButtonCode.KeyComboOne))
         {
             this.transform.Translate(new Vector3(0f, 2f, 0f) * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.S) )
+        else if (TranslationLayer.instance.GetButton(ButtonCode.KeyComboTwo))
         {
             this.transform.Translate(new Vector3(0f, -2f, 0f) * Time.deltaTime);
         }
