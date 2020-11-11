@@ -7,7 +7,7 @@ public class ActivateGame : MonoBehaviour
 {
 
     public GameObject TeleportPoint;
-    public GameObject GameCamera; 
+    public GameObject GameCamera;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +17,6 @@ public class ActivateGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

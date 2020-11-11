@@ -7,8 +7,19 @@ TagManager:
   - Striker
   - Puck
   - AirHockeyTable
+  - projectile
+  - FxTemporaire
+  - AirHockeyBumper
   - Enemy
+  - ClawSurface
+  - BlueDoll
+  - GreenFish
   - Potion
+  - AirHockeyBumper
+  - PinballBall
+  - PinballFlipper
+  - PinballBumper
+  - PinballCushion
   layers:
   - Default
   - TransparentFX

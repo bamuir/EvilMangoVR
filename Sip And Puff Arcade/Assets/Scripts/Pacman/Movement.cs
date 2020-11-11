@@ -27,46 +27,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 dir = dest - (Vector2)transform.position;
-        //Vector2 p = Vector2.MoveTowards(transform.position, dest, speed);
-        //GetComponent<Rigidbody2D>().MovePosition(p);
-
-        /*if ((Vector2)transform.position == dest)
-        {
-            if (Input.GetKey(KeyCode.UpArrow) && Valid(Vector2.up))
-            {
-                dest = (Vector2)transform.position + Vector2.up;
-            }
-            if (Input.GetKey(KeyCode.RightArrow) && Valid(Vector2.right))
-            {
-                dest = (Vector2)transform.position + Vector2.right;
-            }
-            if (Input.GetKey(KeyCode.DownArrow) && Valid(-Vector2.up))
-            {
-                dest = (Vector2)transform.position - Vector2.up;
-            }
-            if (Input.GetKey(KeyCode.LeftArrow) && Valid(-Vector2.right))
-            {
-                dest = (Vector2)transform.position - Vector2.right;
-            }
-        }*/
-
-        /*if (Input.GetKey(KeyCode.UpArrow) && Valid(Vector2.up))
-        {
-            currentDirection = Direction.Up;
-        }
-        if (Input.GetKey(KeyCode.RightArrow) && Valid(Vector2.right))
-        {
-            currentDirection = Direction.Right;
-        }
-        if (Input.GetKey(KeyCode.DownArrow) && Valid(-Vector2.up))
-        {
-            currentDirection = Direction.Down;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow) && Valid(-Vector2.right))
-        {
-            currentDirection = Direction.Left;
-        }*/
-
+        
         if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyFoward) && Valid(Vector2.up))
         {
             currentDirection = Direction.Up;
@@ -109,8 +70,8 @@ public class Movement : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = movement;
 
         //Vector2 dir = dest - (Vector2)transform.position;
-        GetComponent<Animator>().SetFloat("DirX", dir.x);
-        GetComponent<Animator>().SetFloat("DirY", dir.y);
+        //GetComponent<Animator>().SetFloat("DirX", dir.x);
+        //GetComponent<Animator>().SetFloat("DirY", dir.y);
     }
 
     bool Valid(Vector2 dir)
