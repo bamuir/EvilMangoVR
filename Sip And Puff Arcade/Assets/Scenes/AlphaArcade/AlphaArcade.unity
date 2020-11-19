@@ -541,8 +541,48 @@ PrefabInstance:
       propertyPath: VRAdapter
       value: 
       objectReference: {fileID: 252890266}
+    - target: {fileID: 6443624351781915258, guid: 77ae0165949d0354b926a759cf765891, type: 3}
+      propertyPath: SipAndPuffAdapter
+      value: 
+      objectReference: {fileID: 2116393788}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77ae0165949d0354b926a759cf765891, type: 3}
+--- !u!1 &2116393786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6443624351781915236, guid: 77ae0165949d0354b926a759cf765891, type: 3}
+  m_PrefabInstance: {fileID: 2116393785}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2116393787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116393786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e404fa34b00fc2144bc7d1fe661ab24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpdateMethod: 0
+  OpenPortOnStart: 1
+  UI_commandDisplay: {fileID: 0}
+  BaudRate: 115200
+  ReadTimeout: 50
+  WriteTimeout: 50
+--- !u!114 &2116393788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116393786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7db456ff2b705489ca6c6675325b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serialPort: {fileID: 2116393787}
 --- !u!1 &2144278520
 GameObject:
   m_ObjectHideFlags: 0

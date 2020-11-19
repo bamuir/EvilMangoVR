@@ -23,6 +23,7 @@ public class TranslationLayer : MonoBehaviour
 {
     public VRControllerAdapter VRAdapter;
     public static TranslationLayer instance = null;
+    public SipAndPuffAdapter SipAndPuffAdapter;
 
     private void Start()
     {
@@ -74,7 +75,7 @@ public class TranslationLayer : MonoBehaviour
             default:
                 throw new ArgumentException("Unknown KeyCode");
         }
-        return Input.GetKeyDown(systemKey) || VRAdapter.GetButtonDown(key);
+        return Input.GetKeyDown(systemKey) || VRAdapter.GetButtonDown(key) || SipAndPuffAdapter.GetButtonDown(key);
     }
     
     /**
@@ -112,6 +113,6 @@ public class TranslationLayer : MonoBehaviour
             default:
                 throw new ArgumentException("Unknown KeyCode");
         }
-        return Input.GetKey(systemKey) || VRAdapter.GetButton(key);
+        return Input.GetKey(systemKey) || VRAdapter.GetButton(key) || SipAndPuffAdapter.GetButton(key);
     }
 }
