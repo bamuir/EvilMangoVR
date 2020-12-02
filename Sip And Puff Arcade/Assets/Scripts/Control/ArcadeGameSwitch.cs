@@ -26,7 +26,7 @@ public class ArcadeGameSwitch : MonoBehaviour
         if (ArcadeGameSwitch.instance == null)
         {
             ArcadeGameSwitch.instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            // DontDestroyOnLoad(this.gameObject);
         }
         
         // Start at spawn
