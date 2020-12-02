@@ -7,7 +7,11 @@ public enum ButtonCode
     KeyLeft,
     KeyRight,
     KeyBack,
-    KeyFoward
+    KeyFoward,
+    KeyComboOne,
+    KeyComboTwo,
+    KeyComboThree,
+    KeyExit
 }
 
 /**
@@ -20,14 +24,19 @@ public class TranslationLayer : MonoBehaviour
     public VRControllerAdapter VRAdapter;
     public static TranslationLayer instance = null;
 
-    public TranslationLayer()
+    private void Start()
     {
-        TranslationLayer.instance = this;
+        
     }
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if(TranslationLayer.instance == null)
+        {
+            TranslationLayer.instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        
     }
 
     /**
@@ -50,12 +59,24 @@ public class TranslationLayer : MonoBehaviour
             case ButtonCode.KeyFoward:
                 systemKey = KeyCode.UpArrow;
                 break;
+            case ButtonCode.KeyComboOne:
+                systemKey = KeyCode.Alpha1;
+                break;
+            case ButtonCode.KeyComboTwo:
+                systemKey = KeyCode.Alpha2;
+                break;
+            case ButtonCode.KeyComboThree:
+                systemKey = KeyCode.Alpha3;
+                break;
+            case ButtonCode.KeyExit:
+                systemKey = KeyCode.BackQuote;
+                break;
             default:
                 throw new ArgumentException("Unknown KeyCode");
         }
         return Input.GetKeyDown(systemKey) || VRAdapter.GetButtonDown(key);
     }
-
+    
     /**
      * Returns true as long as the button is held
      */
@@ -75,6 +96,18 @@ public class TranslationLayer : MonoBehaviour
                 break;
             case ButtonCode.KeyFoward:
                 systemKey = KeyCode.UpArrow;
+                break;
+            case ButtonCode.KeyComboOne:
+                systemKey = KeyCode.Alpha1;
+                break;
+            case ButtonCode.KeyComboTwo:
+                systemKey = KeyCode.Alpha2;
+                break;
+            case ButtonCode.KeyComboThree:
+                systemKey = KeyCode.Alpha3;
+                break;
+            case ButtonCode.KeyExit:
+                systemKey = KeyCode.BackQuote;
                 break;
             default:
                 throw new ArgumentException("Unknown KeyCode");

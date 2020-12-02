@@ -5,60 +5,24 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/AlphaArcade/AlphaArcade.unity
     guid: 4cb30b60398bca3449503d3341f0ad0e
   - enabled: 1
-    path: Assets/Scenes/AlphaArcade/GameBreakouts/Airhockey.unity
-    guid: c6f3c0fd299f4e040b2cc12fd72b4d19
-  - enabled: 1
-    path: Assets/Scenes/AlphaArcade/GameBreakouts/CraneGame.unity
-    guid: 5e2c6fa12dced8b4296238ae8c5cfd3d
-  - enabled: 1
-    path: Assets/Scenes/AlphaArcade/GameBreakouts/PacMan.unity
-    guid: 0f204d3dafc1e6848847e2bf5cff5762
+    path: Assets/Scenes/AlphaArcade/GameBreakouts/Snake.unity
+    guid: 845ca607ea2863f4e8e4c750bceb1ca8
   - enabled: 1
     path: Assets/Scenes/AlphaArcade/GameBreakouts/Pinball.unity
-    guid: 246eabcd9f70aeb42aee325254bc8d38
+    guid: 655f9bdf12fd2584782d63514dae1499
   - enabled: 1
-    path: Assets/Scenes/AlphaArcade/GameBreakouts/Snake.unity
-    guid: de63873ece693ac4aaf0430e54cc1289
+    path: Assets/Scenes/AlphaArcade/GameBreakouts/PacMan.unity
+    guid: dc7dd291ff517474b857639715b213a0
   - enabled: 1
-    path: Assets/Scenes/Old/SeatedSipAndPuffScene.unity
-    guid: f0d7678c6d206c744af857215f640f2e
+    path: Assets/Scenes/AlphaArcade/GameBreakouts/CraneGame.unity
+    guid: a0a7636f83201384992eab61acfb9386
   - enabled: 1
-    path: Assets/Scenes/Old/Breakouts/Breakout_AirHockey.unity
-    guid: ae021dd543bbd984ca8c7c51f4bfd085
-  - enabled: 1
-    path: Assets/Scenes/Old/Breakouts/Breakout_ArcadeCabinet.unity
-    guid: 9e8d8e6621d8f774db11e0ae3c285184
-  - enabled: 1
-    path: Assets/Scenes/Old/Breakouts/Breakout_CraneGame.unity
-    guid: 41c2662b46cf0504394ccb6af688e934
-  - enabled: 1
-    path: Assets/Scenes/Old/Breakouts/Breakout_Pinball.unity
-    guid: f9c910abbff4ac2409466a1e4547bdd2
-  - enabled: 1
-    path: Assets/Scenes/Old/Breakouts/Breakout_ShootingGallery.unity
-    guid: 1d179bef10ff20f47a0c8b67abdbbeae
-  - enabled: 1
-    path: Assets/Scenes/Old/Breakouts/Breakout_Snake.unity
-    guid: 3f4e58a70afac8a47bd6849b17a22dfb
+    path: Assets/Scenes/AlphaArcade/GameBreakouts/Airhockey.unity
+    guid: 384fb8403383e5a4a8a6c289431fb999
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: de6bd3223b603f04bac544c9f7a0a93f, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 270e5fe592388e74aae5dee509bfaf55, type: 2}

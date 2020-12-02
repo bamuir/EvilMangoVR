@@ -62,7 +62,7 @@ public class toyMovement : MonoBehaviour
             clawObj.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyComboThree))
         {
             RemoveFixedJoint();
         }

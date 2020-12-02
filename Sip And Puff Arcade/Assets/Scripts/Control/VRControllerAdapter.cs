@@ -13,6 +13,16 @@ public class VRControllerAdapter : MonoBehaviour
     public SteamVR_Action_Boolean leftPressed;
     public SteamVR_Action_Boolean backPressed;
 
+    public static VRControllerAdapter instance = null;
+
+    private void Awake()
+    {
+        if (VRControllerAdapter.instance == null)
+        {
+            VRControllerAdapter.instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
     public bool GetButtonDown(ButtonCode keyCode)
     {
         switch (keyCode)
@@ -25,8 +35,16 @@ public class VRControllerAdapter : MonoBehaviour
                 return backPressed.GetStateDown(hand);
             case ButtonCode.KeyLeft:
                 return leftPressed.GetStateDown(hand);
+            case ButtonCode.KeyExit:
+                return false;
+            case ButtonCode.KeyComboOne:
+                return false;
+            case ButtonCode.KeyComboTwo:
+                return false;
+            case ButtonCode.KeyComboThree:
+                return false;
             default:
-                throw new ArgumentException("Unknown keyCode");
+                throw new ArgumentException("Unknown keyCode" + keyCode);
         }
     }
 
@@ -42,8 +60,16 @@ public class VRControllerAdapter : MonoBehaviour
                 return backPressed.GetState(hand);
             case ButtonCode.KeyLeft:
                 return leftPressed.GetState(hand);
+            case ButtonCode.KeyExit:
+                return false;
+            case ButtonCode.KeyComboOne:
+                return false;
+            case ButtonCode.KeyComboTwo:
+                return false;
+            case ButtonCode.KeyComboThree:
+                return false;
             default:
-                throw new ArgumentException("Unknown keyCode");
+                throw new ArgumentException("Unknown keyCode" + keyCode);
         }
     }
 }
