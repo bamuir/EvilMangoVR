@@ -10,8 +10,8 @@ public class PuckMovement : MonoBehaviour
     public float maxSpeed = 3;
     public float acceleration = 1.001f;
     public float startSpeed = 2;
-    public GameObject goal1;
-    public GameObject goal2;
+    public GameObject playerGoal;
+    public GameObject enemyGoal;
     public GameObject gameBoundary;
     public Material OOBMat;
     public GameObject table;
@@ -67,11 +67,15 @@ public class PuckMovement : MonoBehaviour
         }
         if(state == PuckState.green)
         {
-            p.AddForce(new Vector3(0 , 0, -0.2f));
+            p.AddForce(GetGoalVector(enemyGoal)*.1f);
         }
         else if(state == PuckState.red)
         {
-            p.AddForce(new Vector3(0, 0, 0.2f));
+            p.AddForce(GetGoalVector(playerGoal)*.1f);
+        }
+        else
+        {
+            p.AddForce(new Vector3(0, 0, 0.05f));
         }
     }
 
@@ -154,7 +158,14 @@ public class PuckMovement : MonoBehaviour
     private void ChangeTableColor(Material m)
     {
         Material[] mat = table.GetComponent<MeshRenderer>().materials;
-        mat[0] = m;
+        mat[3] = m;
+        mat[4] = m;
         table.GetComponent<MeshRenderer>().materials = mat;
+    }
+
+    private Vector3 GetGoalVector(GameObject goal)
+    {
+        Vector3 deltaPos = goal.transform.position - puck.transform.position;
+        return deltaPos.normalized;
     }
 }

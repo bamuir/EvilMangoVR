@@ -662,6 +662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PacManRedoneBam
       objectReference: {fileID: 0}
+    - target: {fileID: 2429668021775256754, guid: 5cb64eb7687b2924ba1924967307feef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.146
+      objectReference: {fileID: 0}
     - target: {fileID: 2454780605610263206, guid: 5cb64eb7687b2924ba1924967307feef, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -670,6 +674,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: ffb16021b15e621479d32fc3a8c0cdeb, type: 2}
+    - target: {fileID: 3628226918521043401, guid: 5cb64eb7687b2924ba1924967307feef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.067
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2429668021124174844, guid: 5cb64eb7687b2924ba1924967307feef, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5cb64eb7687b2924ba1924967307feef, type: 3}
@@ -7935,9 +7943,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 977929020}
   - {fileID: 1246061941}
   - {fileID: 402247362}
-  - {fileID: 977929020}
   m_Father: {fileID: 6097370206451515843}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
