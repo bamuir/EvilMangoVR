@@ -35,7 +35,7 @@ public class TranslationLayer : MonoBehaviour
         if(TranslationLayer.instance == null)
         {
             TranslationLayer.instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            // DontDestroyOnLoad(this.gameObject);
         }
         
     }

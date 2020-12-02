@@ -112,7 +112,7 @@ public class UnitySerialPort : MonoBehaviour
         // Define the script Instance
         if (Instance == null)
         {
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
             Instance = this;
         }
         else
