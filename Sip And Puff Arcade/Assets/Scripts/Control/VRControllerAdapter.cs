@@ -20,7 +20,7 @@ public class VRControllerAdapter : MonoBehaviour
         if (VRControllerAdapter.instance == null)
         {
             VRControllerAdapter.instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            // DontDestroyOnLoad(this.gameObject);
         }
     }
     public bool GetButtonDown(ButtonCode keyCode)
