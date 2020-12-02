@@ -7,10 +7,10 @@ public class LauncherControl : MonoBehaviour
     public float speedFactor = 1.0f;
     private float moved = 0.0f;
     private Rigidbody rigidBody;
-    private MoveState state = MoveState.Rest;
+    public MoveState state = MoveState.Rest;
     private Vector3 originalPosition;
     
-    private enum MoveState
+    public enum MoveState
     {
         Rest,
         Back,
@@ -57,17 +57,6 @@ public class LauncherControl : MonoBehaviour
                 transform.position = originalPosition;
                 state = MoveState.Rest;
             }
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Collision");
-        if (collision.collider.gameObject.CompareTag("PinballBall") && state == MoveState.Forward)
-        {
-            Debug.Log("With ball");
-            Vector3 dir = collision.impulse.normalized;
-            collision.rigidbody.AddRelativeForce(dir * 100, ForceMode.VelocityChange);
         }
     }
 }
