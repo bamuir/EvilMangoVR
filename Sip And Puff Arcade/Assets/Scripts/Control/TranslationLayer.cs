@@ -23,7 +23,8 @@ public class TranslationLayer : MonoBehaviour
 {
     public VRControllerAdapter VRAdapter;
     public static TranslationLayer instance = null;
-    public SipAndPuffAdapter SipAndPuffAdapter;
+    //public SipAndPuffAdapter SipAndPuffAdapter;
+    //public bool UsingSipandPuff;
 
     private void Start()
     {
@@ -75,7 +76,9 @@ public class TranslationLayer : MonoBehaviour
             default:
                 throw new ArgumentException("Unknown KeyCode");
         }
-        return Input.GetKeyDown(systemKey) || VRAdapter.GetButtonDown(key) || SipAndPuffAdapter.GetButtonDown(key);
+
+        // || SipAndPuffAdapter.GetButtonDown(key) ----> this is breaking the return... idk why its null and cant figure it out
+        return Input.GetKeyDown(systemKey) || VRAdapter.GetButtonDown(key) ;
     }
     
     /**
@@ -113,6 +116,7 @@ public class TranslationLayer : MonoBehaviour
             default:
                 throw new ArgumentException("Unknown KeyCode");
         }
-        return Input.GetKey(systemKey) || VRAdapter.GetButton(key) || SipAndPuffAdapter.GetButton(key);
+        // || SipAndPuffAdapter.GetButton(key) same as before..
+        return Input.GetKey(systemKey) || VRAdapter.GetButton(key);
     }
 }
