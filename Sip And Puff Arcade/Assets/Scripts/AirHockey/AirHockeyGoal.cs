@@ -24,7 +24,8 @@ public class AirHockeyGoal : MonoBehaviour
         if(recentGoal)
         {
             goalTime += Time.deltaTime;
-            if(goalTime > gameWinTime)
+            puck.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            if (goalTime > gameWinTime)
             {
                 recentGoal = false;
                 puck.GetComponent<PuckMovement>().GameReset();

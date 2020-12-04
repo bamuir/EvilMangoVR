@@ -662,6 +662,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: AirhockeyGame
       objectReference: {fileID: 0}
+    - target: {fileID: 951376814809956393, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b15ada93ea33b3d40bb4bd7c841869c8, type: 2}
+    - target: {fileID: 1821166578431278776, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b15ada93ea33b3d40bb4bd7c841869c8, type: 2}
+    - target: {fileID: 2390829944214994148, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b15ada93ea33b3d40bb4bd7c841869c8, type: 2}
+    - target: {fileID: 2761463407690828304, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b15ada93ea33b3d40bb4bd7c841869c8, type: 2}
+    - target: {fileID: 3234792170991826366, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b15ada93ea33b3d40bb4bd7c841869c8, type: 2}
+    - target: {fileID: 3769163391246052513, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b15ada93ea33b3d40bb4bd7c841869c8, type: 2}
+    - target: {fileID: 4685488791239397382, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b15ada93ea33b3d40bb4bd7c841869c8, type: 2}
+    - target: {fileID: 5175188515819888038, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b15ada93ea33b3d40bb4bd7c841869c8, type: 2}
+    - target: {fileID: 6120602278748474436, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b15ada93ea33b3d40bb4bd7c841869c8, type: 2}
+    - target: {fileID: 9091348561782238609, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b15ada93ea33b3d40bb4bd7c841869c8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46523de79097e574b909e2b8e20f5727, type: 3}
 --- !u!1 &2144278520
