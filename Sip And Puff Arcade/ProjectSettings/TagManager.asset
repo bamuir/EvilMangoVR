@@ -21,6 +21,7 @@ TagManager:
   - PinballBumper
   - PinballCushion
   - AirhockeyBoundaries
+  - Coin
   layers:
   - Default
   - TransparentFX
