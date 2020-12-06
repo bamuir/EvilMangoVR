@@ -47,7 +47,7 @@ public class Score : MonoBehaviour
         speed.enabled = false;
         speedLabel.enabled = false;
 
-        speedNum = 5;
+        speedNum = 1;
         
     }
 
@@ -81,7 +81,7 @@ public class Score : MonoBehaviour
         {
             int zero = 0;
             score.text = "GAME OVER :(";
-            length.text = zero.ToString();
+            //length.text = zero.ToString();
             GameHandler.setAlive();
         }
 
@@ -117,8 +117,8 @@ public class Score : MonoBehaviour
     {
         bool changed = false;
 
-        // if speed is from 0-10, change it.
-        if (speedNum + i < 11 && speedNum + i > -1)
+        // if speed is from 1-10, change it.
+        if (speedNum + i < 11 && speedNum + i > 0)
         {
             speedNum += i;
             changed = true;
@@ -132,8 +132,8 @@ public class Score : MonoBehaviour
 
     public static void ResetSpeed()
     {
-        speedNum = 5;
-        speed.text = 5.ToString();
+        speedNum = 1;
+        speed.text = 1.ToString();
     }
 
     public static void BringBackMenu()

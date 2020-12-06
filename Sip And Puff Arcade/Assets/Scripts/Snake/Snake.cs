@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine;
 using System;
@@ -22,12 +21,15 @@ public class Snake : MonoBehaviour
     private float countTime;
     private float gameOverTime;
     private float menuTime;
+    private float holdTimePerMove;
 
+    // number used for countdown at start of game
     private int countNum;
 
+    // where the snake is pointing
     private Vector2 moveDirection;
 
-    // if the user inputs 2 controls before the timeToMove only the first valid input is considered. 
+    // if the user inputs more than one control before the timeToMove, only the first valid input is considered. 
     private bool canMove;
 
     // the z dim of our screen in unity.
@@ -37,11 +39,13 @@ public class Snake : MonoBehaviour
     private List<Vector2> prevPositionList;
     private List<Transform> bodyList;
 
-    private float speed = 0.25f;
-    private float negSpeed = -0.25f;
+    // how far the snake moves per timePerMove
+    private float moveDistance = 0.25f;
+    private float negativeMoveDistance = -0.25f;
 
     private bool Alive;
 
+    // used to know where the menu select box is
     private bool selectIsOnStart;
     private bool inDifMenu;
 
@@ -59,7 +63,7 @@ public class Snake : MonoBehaviour
         pos_to_screen();
         selectIsOnStart = true;
         inDifMenu = false;
-        timePerMove = 0.125f;
+        timePerMove = 0.5f;
         menuTime = 0.1f;
         countTime = 1;
         moveTimer = menuTime;
@@ -68,7 +72,7 @@ public class Snake : MonoBehaviour
 
 
         // starts off moving to the right.
-        moveDirection = new Vector2(speed, 0);
+        moveDirection = new Vector2(moveDistance, 0);
 
         canMove = true;
 
@@ -76,9 +80,6 @@ public class Snake : MonoBehaviour
         snakeBodySize = 0;
 
         bodyList = new List<Transform>();
-
-
-
     }
 
     private void Update()
@@ -115,13 +116,18 @@ public class Snake : MonoBehaviour
         {
             GameHandler.reset();
             Score.BringBackMenu();
-            Score.ResetSpeed();
             transform.position = new Vector3(0, 0, 0);
             grid.HideFood();
             deleteBody();
+
+            // reset all variables excet for the difficulty / speed of the snake
+            holdTimePerMove = timePerMove;
             Awake();
+            timePerMove = holdTimePerMove;
         }
     }
+
+    // countdown at the start of the game (3, 2, 1)
     private void CountDown()
     {
         moveTimer += Time.deltaTime;
@@ -145,6 +151,7 @@ public class Snake : MonoBehaviour
     }
 
     // control for the start menu.
+    // 3 checks are done: Is 'start' toggled, is 'difficulty' toggled, is user in difficulty menu.
     private void Menu()
     {
         // increase move timer
@@ -154,31 +161,31 @@ public class Snake : MonoBehaviour
         {
             if (TranslationLayer.instance.GetButton(ButtonCode.KeyLeft))
             {
-                if (!inDifMenu)
+                if (!inDifMenu && !selectIsOnStart)
                 {
                     selectIsOnStart = !selectIsOnStart;
                     Score.MoveSelection(selectIsOnStart);
                 }
 
-                else
+                else if(inDifMenu)
                 {
                     if (Score.SetSpeed(-1))
-                        timePerMove += .015f;
+                        timePerMove += .045f;
                 }
             }
 
             else if (TranslationLayer.instance.GetButton(ButtonCode.KeyRight))
             {
-                if (!inDifMenu)
+                if (!inDifMenu && selectIsOnStart)
                 {
                     selectIsOnStart = !selectIsOnStart;
                     Score.MoveSelection(selectIsOnStart);
                 }
 
-                else
+                else if(inDifMenu)
                 {
                     if (Score.SetSpeed(1))
-                        timePerMove -= .015f;
+                        timePerMove -= .045f;
                 }
             }
 
@@ -201,7 +208,7 @@ public class Snake : MonoBehaviour
                 }
 
                 // if user wants to exit difficulty menu.
-                else
+                else if(inDifMenu)
                 {
                     inDifMenu = false;
                     Score.BringBackMenu();
@@ -224,28 +231,28 @@ public class Snake : MonoBehaviour
         // and its direction has been updated by HandleTime().
         if (TranslationLayer.instance.GetButton(ButtonCode.KeyLeft))
         {
-            if (moveDirection.x != speed && canMove)
+            if (moveDirection.x != moveDistance && canMove)
             {
                 moveDirection.y = 0;
-                moveDirection.x = speed * -1;
+                moveDirection.x = moveDistance * -1;
                 canMove = false;
             }
 
         }
         else if (TranslationLayer.instance.GetButton(ButtonCode.KeyRight))
         {
-            if (moveDirection.x != negSpeed && canMove)
+            if (moveDirection.x != negativeMoveDistance && canMove)
             {
                 moveDirection.y = 0;
-                moveDirection.x = speed;
+                moveDirection.x = moveDistance;
                 canMove = false;
             }
         }
         else if (TranslationLayer.instance.GetButton(ButtonCode.KeyFoward))
         {
-            if (moveDirection.y != negSpeed && canMove)
+            if (moveDirection.y != negativeMoveDistance && canMove)
             {
-                moveDirection.y = speed;
+                moveDirection.y = moveDistance;
                 moveDirection.x = 0;
                 canMove = false;
             }
@@ -253,9 +260,9 @@ public class Snake : MonoBehaviour
        
         else if (TranslationLayer.instance.GetButton(ButtonCode.KeyBack))
         {
-            if (moveDirection.y != speed && canMove)
+            if (moveDirection.y != moveDistance && canMove)
             {
-                moveDirection.y = -1 * speed;
+                moveDirection.y = -1 * moveDistance;
                 moveDirection.x = 0;
                 canMove = false;
             }
@@ -345,10 +352,8 @@ public class Snake : MonoBehaviour
 
     }
 
-    /**
-     * Translates the position to the Unity. Used just in case things need to be moved in game.
-     * Start value can be updated if we move the screen, arcade machine, etc.
-     */
+    // Translates the position to the Unity. Used just in case things need to be moved in game.
+    // Start value can be updated if we move the screen, arcade machine, etc.
     private void pos_to_screen()
     {
 
@@ -360,6 +365,7 @@ public class Snake : MonoBehaviour
 
     }
 
+    // make a body part if food is ate
     private void makeBody()
     {
 
@@ -370,6 +376,7 @@ public class Snake : MonoBehaviour
 
     }
 
+    // if game ends, delete all body parts before next game.
     private void deleteBody()
     {
         foreach(Transform b in bodyList)
