@@ -5,11 +5,15 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Globalization;
 using System.Reflection;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
 
+/**
+ * Labels for menu items, score, length, etc are initialized and displayed from this class. 
+ * If a user starts the game, gets rid of the start menu. If the user chooses the difficulty
+ * selection, bring up that menu and allow user to change speed. 
+ */
 public class Score : MonoBehaviour
 {
     private static Text score;
@@ -31,6 +35,7 @@ public class Score : MonoBehaviour
 
     private void Awake()
     {
+        // initialize menu / game labels (start, difficulty, score, length, etc)
         score = transform.Find("Score").GetComponent<Text>();
         length = transform.Find("Length").GetComponent<Text>();
         startButton = transform.Find("StartButton").GetComponent<Text>();
@@ -39,27 +44,22 @@ public class Score : MonoBehaviour
         snakeLabel = transform.Find("SnakeLabel").GetComponent<Text>();
         speedLabel = transform.Find("SpeedLabel").GetComponent<Text>();
         speed = transform.Find("Speed").GetComponent<Text>();
-
         start = transform.Find("Start").GetComponent<Image>();
         selection = transform.Find("Selection").GetComponent<Image>();
 
+        // labels for the difficulty menu and coutdown are not displayed at start
         count.enabled = false;
         speed.enabled = false;
         speedLabel.enabled = false;
 
-        speedNum = 1;
-        
+        // difficulty / speed start at lowest value
+        speedNum = 1;      
     }
 
     private void Update()
     {
-        // if we are at the start menu...
-        if (GameHandler.getAtMenu())
-        {
-            
-        }
-
-        else
+        // if game has started, disable menu labels
+        if (!GameHandler.getAtMenu())
         {
             start.enabled = false;
             selection.enabled = false;
@@ -67,27 +67,25 @@ public class Score : MonoBehaviour
             difficultyButton.enabled = false;
             snakeLabel.enabled = false;
         }
-
-        // if countdown done, disable.
-
+    
         if (GameHandler.getAlive())
         {
-            
             score.text = GameHandler.GetScore().ToString();
             length.text = GameHandler.GetLength().ToString();  
         }
 
+        // if snake has died, display 'game over'
         else
         {
             int zero = 0;
             score.text = "GAME OVER :(";
-            //length.text = zero.ToString();
             GameHandler.setAlive();
         }
 
 
     }
 
+    // change posistion of box that represents the user's selection on the start menu
     public static void MoveSelection(bool select)
     {
         
@@ -100,6 +98,7 @@ public class Score : MonoBehaviour
             selection.transform.position = new Vector3(34.8f, 1.8f, 0);
     }
 
+    // count down at start of game
     public static void CountDown(int num)
     {
         if (num == 0)
@@ -113,6 +112,7 @@ public class Score : MonoBehaviour
         count.text = num.ToString();
     }
 
+    // changes difficulty
     public static bool SetSpeed(int i)
     {
         bool changed = false;
@@ -130,12 +130,7 @@ public class Score : MonoBehaviour
         
     }
 
-    public static void ResetSpeed()
-    {
-        speedNum = 1;
-        speed.text = 1.ToString();
-    }
-
+    // when user exits the difficutly menu, bring back the original start menu
     public static void BringBackMenu()
     {
         start.enabled = true;
@@ -149,6 +144,7 @@ public class Score : MonoBehaviour
 
     }
 
+    // if user toggels the difficulty selection, bring up this menu
     public static void DifficultyMenu()
     {
         speed.enabled = true;

@@ -8,6 +8,12 @@ using UnityEngine;
 using System;
 using System.CodeDom;
 
+
+/**
+ * Snake movement, menu selections are handled in this class. Also handles where in the game the user
+ * currently is (start menu, difficulty menu, in game) and determines if the snake is dead or alive. 
+ * Calls 'grid' class to spawn food and determines if the user has moved the snake over the food. 
+ */
 public class Snake : MonoBehaviour
 {
     // where the snake head should start and where it is currently
@@ -56,7 +62,7 @@ public class Snake : MonoBehaviour
 
    private void Awake()
     {
-
+        // set speed, position, what screen the user is on, etc.
         Alive = true;
         snakePos = new Vector2(0, 0);
         snakeStart = new Vector2(33, 2);
@@ -74,21 +80,23 @@ public class Snake : MonoBehaviour
         // starts off moving to the right.
         moveDirection = new Vector2(moveDistance, 0);
 
+        // user can update snake position / menu selection
         canMove = true;
 
         prevPositionList = new List<Vector2>();
         snakeBodySize = 0;
-
         bodyList = new List<Transform>();
     }
 
     private void Update()
     {
+        // handle menu selection movement
         if (GameHandler.getAtMenu())
         {
             Menu();
         }
 
+        // if user just selected 'start', enabled the countdown
         else if (GameHandler.getCount())
         {
             CountDown();
@@ -101,6 +109,7 @@ public class Snake : MonoBehaviour
             HandleTime();
         }
 
+        // if snake has died
         else if (!Alive)
         {
             GameHandler.setDead();
@@ -108,6 +117,8 @@ public class Snake : MonoBehaviour
         }
         
     }
+
+    // reset game variables, bring up menu screen
     private void GameOver()
     {
         moveTimer += Time.deltaTime;
@@ -159,6 +170,8 @@ public class Snake : MonoBehaviour
 
         if (moveTimer >= menuTime)
         {
+            // move left if user is currently toggeling 'difficutly' section and is in start menu
+            // decrease speed if user is in difficulty menu
             if (TranslationLayer.instance.GetButton(ButtonCode.KeyLeft))
             {
                 if (!inDifMenu && !selectIsOnStart)
@@ -174,6 +187,8 @@ public class Snake : MonoBehaviour
                 }
             }
 
+            // move right if user is currently toggeling 'start' section and is in start menu
+            // increase speed if user is in difficulty menu
             else if (TranslationLayer.instance.GetButton(ButtonCode.KeyRight))
             {
                 if (!inDifMenu && selectIsOnStart)
@@ -189,6 +204,8 @@ public class Snake : MonoBehaviour
                 }
             }
 
+            // start game if user is toggeling 'start', bring up difficulty menu if user is toggeling 
+            // 'difficulty', go back to start menu if user is in difficulty menu.
             else if (TranslationLayer.instance.GetButton(ButtonCode.KeyFoward))
             {
                 // if user selected start
@@ -274,6 +291,7 @@ public class Snake : MonoBehaviour
     {
         // increase move timer
         moveTimer += Time.deltaTime;
+       
         // keeps track of when snake as ate
         bool snakeAte = false;
 
@@ -283,22 +301,21 @@ public class Snake : MonoBehaviour
         // update snake posisition once per timePerMove
         if (moveTimer >= timePerMove)
         {
-            // insert the previos posistion into our list
+            // insert the previos posistion into our list (to determine where body parts go)
             prevPositionList.Insert(0, snakePos);
             
             snakePos += moveDirection;
             moveTimer -= timePerMove;
             canMove = true;
 
-            // send position of snake to our Grid classa and receive if the snake has ate.
+            // send position of snake to our Grid class and receive if the snake has ate.
             snakeAte = grid.SnakeAte(snakePos);
             
             // if we have ate, increase body size.
             if (snakeAte)
             {
                 snakeBodySize++;
-                makeBody();
-                
+                makeBody();            
             }
 
             // if the size of list is greater than the size of the body, remove the last index.

@@ -5,6 +5,10 @@ using System.Collections.Specialized;
 using UnityEngine;
 using System.Diagnostics;
 
+/**
+ * This class spawns food in the game, determines if a snake has ate food, and updates body
+ * part positions 
+ */
 public class Grid : MonoBehaviour
 {
     private Vector2 foodPos;
@@ -30,11 +34,7 @@ public class Grid : MonoBehaviour
     private void Awake()
     {
         // initialzie snake body.
-        snakeBodyPos = new List<Vector2>();
-
-        // update food position in Unity
-        //SpawnFood();
-       
+        snakeBodyPos = new List<Vector2>();      
     }
 
     private void Update()
@@ -42,6 +42,7 @@ public class Grid : MonoBehaviour
         
     }
 
+    // determines where to spawn food in the game
     public void SpawnFood()
     {
         // spawn food in a new location on screen if it isnt in the same position as our snake.
@@ -58,6 +59,7 @@ public class Grid : MonoBehaviour
         
     }
 
+    // determines if the user has moved the snake over food 
     public bool SnakeAte(Vector2 snakePos)
     {
         // if the snake has moved, update our version of the snakes location.
@@ -81,10 +83,10 @@ public class Grid : MonoBehaviour
     // get the list of that contains the position of the snake body parts.
     public void SnakeBodyPos(List<Vector2> bodyPos)
     {
-        snakeBodyPos = bodyPos;
-       
+        snakeBodyPos = bodyPos;     
     }
 
+    // hide food so user cannot see it before game has started.
     public void HideFood()
     {
         transform.position = new Vector3(0, 0, 0);
