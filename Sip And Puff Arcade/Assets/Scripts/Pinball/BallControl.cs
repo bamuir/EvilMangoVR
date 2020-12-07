@@ -9,6 +9,8 @@ public class BallControl : MonoBehaviour
     private Vector3 startPosition;
     private Rigidbody rb;
     private Queue<Task> tasks = new Queue<Task>();
+    private bool launched = false;
+    private float stallTime = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,21 @@ public class BallControl : MonoBehaviour
         {
             ResetPosition();
         }
+        if (launched && rb.velocity == Vector3.zero)
+        {
+            stallTime += Time.deltaTime;
+
+            if (stallTime >= 3)
+            {
+                stallTime = 0;
+                
+                Vector3 randomForce = new Vector3(Random.Range(-5f, 5f), 0, Random.Range(-5f, 5f)).normalized;
+                rb.AddForce(randomForce / 3);
+            }
+        } else
+        {
+            stallTime = 0;
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -30,6 +47,12 @@ public class BallControl : MonoBehaviour
         if (collision.gameObject.name == "ResetTrigger")
         {
             Invoke(nameof(ResetPosition), 0.5f);
+        }
+
+        if (collision.gameObject.CompareTag("PinballLauncherEnd"))
+        {
+            rb.useGravity = true;
+            launched = true;
         }
     }
 
@@ -53,6 +76,21 @@ public class BallControl : MonoBehaviour
                 collision.gameObject.GetComponent<SetBumperColor>().Collide();
             }
         }
+
+        if (collision.gameObject.TryGetComponent(out LauncherControl launcher))
+        {
+            if (launched && launcher.state == LauncherControl.MoveState.Rest)
+            {
+                rb.useGravity = true;
+                launched = false;
+            } else if (launcher.state == LauncherControl.MoveState.Forward)
+            {
+                Vector3 dir = collision.impulse.normalized;
+                rb.useGravity = false;
+                rb.AddForce(-dir * 5, ForceMode.VelocityChange);
+                rb.AddForce(dir, ForceMode.Acceleration);
+            }
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -63,9 +101,10 @@ public class BallControl : MonoBehaviour
         }
     }
 
-    void ResetPosition()
+    public void ResetPosition()
     {
         transform.position = startPosition;
         rb.velocity = Vector3.zero;
+        launched = false;
     }
 }
