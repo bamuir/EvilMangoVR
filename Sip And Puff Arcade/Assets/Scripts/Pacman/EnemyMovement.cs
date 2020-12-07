@@ -62,7 +62,7 @@ public class EnemyMovement : MonoBehaviour
         {
             currentPoint = 0;
             gameObject.transform.position = startingPosition;
-            gameObject.SetActive(true);
+            enemy.SetActive(true);
         }
     }
 }

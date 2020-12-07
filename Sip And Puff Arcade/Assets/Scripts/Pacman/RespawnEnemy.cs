@@ -5,8 +5,8 @@ using UnityEngine;
 public class RespawnEnemy : MonoBehaviour
 {
     float time;
+    float startTime;
     bool dead;
-
 
     List<Vector3> initialPositions;
 
@@ -43,12 +43,23 @@ public class RespawnEnemy : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        time += Time.time;
-        if (dead && time >= 5000)
+        time = Time.time - startTime;
+        if (dead && time >= 5)
         {
-            Reset(enemies[0]);
-            enemies.RemoveAt(0);
+            foreach (GameObject enemy in enemies)
+            {
+                if (!enemy.activeInHierarchy)
+                {
+                    enemy.SetActive(true);
+                    Reset(enemy);
+                    time = 0;
+                    enemies.Remove(enemy);
+                    break;
+                }
+            }
+            //enemies.RemoveAt(0);
             time = 0.0f;
+            startTime = Time.time;
             if (enemies.Count == 0) {
                 dead = false;
             }
@@ -61,6 +72,7 @@ public class RespawnEnemy : MonoBehaviour
         //Reset(enemy);
         enemy.SetActive(false);
         time = 0.0f;
+        startTime = Time.time;
         dead = true;
     }
 
