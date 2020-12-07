@@ -28,6 +28,6 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 ### Feature Video
 
 <iframe width="420" height="315"
-  src="https://www.youtube.com/embed/tgbNymZ7vqY%22%3E">
+  src="https://www.youtube.com/watch?v=CzvQxQYKO88">
 </iframe>
 
