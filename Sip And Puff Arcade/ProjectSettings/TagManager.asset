@@ -22,6 +22,7 @@ TagManager:
   - PinballCushion
   - AirhockeyBoundaries
   - Coin
+  - Node
   layers:
   - Default
   - TransparentFX
@@ -32,8 +33,8 @@ TagManager:
   - 
   - 
   - craneBoxLayer
-  - 
-  - 
+  - Nodes
+  - Walls
   - 
   - 
   - 
