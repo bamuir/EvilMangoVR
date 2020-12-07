@@ -24,31 +24,9 @@ public class toyMovement : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-
-        //print("Update called  with toyObj:" + toyObj.tag);
-
-    }
-
     private void FixedUpdate()
     {
-        //if (toyObj.transform.localPosition.y <
-        //    craneGameBounds.transform.localPosition.y)
-        //{
-        //    toyObj.transform.localPosition = new Vector3(toyObj.transform.localPosition.x,
-        //                                        toyObj.transform.localPosition.y + 0.00001f,
-        //                                        toyObj.transform.localPosition.z);
-        //    toyObj.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        //}
-
-        //if(clawGrab == true )
-        //{
-        //    CreateFixedJoint();
-        //}
-
+       
         ResetToyPosCheck();
         if (toyObj.GetComponent<FixedJoint>())
         {
@@ -67,31 +45,10 @@ public class toyMovement : MonoBehaviour
             RemoveFixedJoint();
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        //print("Collision has started");
-
-    }
-
+    
     private void OnCollisionExit(Collision collision)
     {
-        
         clawGrab = false;
-        
-       // print("Collision has exited");
-
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -102,8 +59,6 @@ public class toyMovement : MonoBehaviour
             CreateFixedJoint();
         }
 
-       // print("OnTriggerEnter called by: " + other.tag);
-
     }
 
     private void CreateFixedJoint()
@@ -112,7 +67,6 @@ public class toyMovement : MonoBehaviour
         fixedJoint.connectedBody = clawObj.GetComponent<Rigidbody>();
         fixedJoint.anchor = clawObj.transform.localPosition;
 
-        print("Fixed Joint made for " + toyObj.tag);
     }
 
     private void RemoveFixedJoint()
@@ -124,7 +78,7 @@ public class toyMovement : MonoBehaviour
         toyObj.GetComponent<Rigidbody>().angularVelocity = new Vector3(0,0, 0.0001f); 
 
 
-        clawObj.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+        clawObj.GetComponent<Rigidbody>().velocity = new Vector3(0,0.1f,0);
         clawObj.GetComponent<Rigidbody>().mass = 0;
 
 
@@ -135,19 +89,11 @@ public class toyMovement : MonoBehaviour
         if(toyObj.transform.localPosition.y < yLowerBound - (float)0.009)
         {
 
-          //  WaitTime(3);
             toyObj.transform.localPosition = toyStartPos;
             toyObj.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             toyObj.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
-            print("Toy is out of machine");
-
         }
     }
-
-    //IEnumerator WaitTime(int time)
-    //{
-    //    yield return new WaitForSeconds(time);
-    //}
 
 
 

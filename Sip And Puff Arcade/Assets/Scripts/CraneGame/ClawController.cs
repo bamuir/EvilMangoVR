@@ -61,20 +61,13 @@ public class ClawController : MonoBehaviour
     public bool ClawInBounds()
     {
 
-        
-
-        print("Calc Y UpperBound = " + yUpperBound);
-        print("Crane local y = " + craneObj.transform.localPosition.y);
-
+       
         if ( craneObj.transform.localPosition.y > yLowerBound)
         {
-            print("In Machine Bounds");
             return true;
         }
         else
         {
-            print("Out of Machine Bounds");
-
             return false;
         }
     }

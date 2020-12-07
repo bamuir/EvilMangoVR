@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using System.Collections;
 
 using System.IO;
@@ -7,6 +8,8 @@ using System.IO.Ports;
 using System;
 
 using System.Threading;
+using System.Collections.Generic;
+
 
 public class UnitySerialPort : MonoBehaviour
 {
@@ -58,7 +61,7 @@ public class UnitySerialPort : MonoBehaviour
     }
 
     // Current com port and set of default
-    private string ComPort = "COM3";
+    private string ComPort = "COM4";
 
     // Current baud rate and set of default
     public int BaudRate = 57600;
@@ -66,6 +69,8 @@ public class UnitySerialPort : MonoBehaviour
     public int ReadTimeout = 50;
 
     public int WriteTimeout = 50;
+
+    public object DataKey { get; private set; }
 
     // Property used to run/keep alive the serial thread loop
     private bool isRunning = false;
@@ -83,13 +88,12 @@ public class UnitySerialPort : MonoBehaviour
         set { rawData = value; }
     }
 
-    // Storage for parsed incoming data
-    private string[] chunkData;
-    public string[] ChunkData
+    public string[] ChunkData 
     {
-        get { return chunkData; }
-        set { chunkData = value; }
+        get; private set;
     }
+
+    public UnityEvent<string> UpdateEvent;
     #endregion Properties
 
     #region Unity Frame Events
@@ -104,9 +108,13 @@ public class UnitySerialPort : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        DataKey = new object();
         // Define the script Instance
         if (Instance == null)
+        {
+            //DontDestroyOnLoad(this.gameObject);
             Instance = this;
+        }
         else
         {
             Debug.LogWarning("Instance of Serial Port Already exist");
@@ -128,6 +136,7 @@ public class UnitySerialPort : MonoBehaviour
         // Details if the port is open or closed
         //if (ComStatusText != null)
         //{ ComStatusText.guiText.text = "ComStatus: Closed"; }
+        this.ChunkData = new string[0];
     }
 
     void GameObjectSerialPort_DataRecievedEvent(string[] Data, string RawData)
@@ -257,17 +266,18 @@ public class UnitySerialPort : MonoBehaviour
         try
         {
             // Initialise the serial port
-           // SerialPort = new SerialPort("\\\\.\\" +comPorts[0].ToString(), BaudRate,Parity.None, 8, StopBits.One);
-             SerialPort = new SerialPort("COM4" , BaudRate,Parity.None, 8, StopBits.One);
+            // SerialPort = new SerialPort("\\\\.\\" +comPorts[0].ToString(), BaudRate,Parity.None, 8, StopBits.One);
+            SerialPort = new SerialPort("COM4", BaudRate, Parity.None, 8, StopBits.One)
+            {
+                DtrEnable = true,
+                ReadTimeout = ReadTimeout,
 
-            SerialPort.DtrEnable = true;
-            SerialPort.ReadTimeout = ReadTimeout;
+                WriteTimeout = WriteTimeout,
+                ReadBufferSize = 8,
+                WriteBufferSize = 8,
+                Handshake = Handshake.None
+            };
 
-            SerialPort.WriteTimeout = WriteTimeout;
-            SerialPort.ReadBufferSize = 8;
-            SerialPort.WriteBufferSize = 8;
-            SerialPort.Handshake = Handshake.None;
-          
             // Open the serial port
             SerialPort.Open();
     
@@ -535,11 +545,9 @@ public class UnitySerialPort : MonoBehaviour
             // Check that the port is open. If not skip and do nothing
             if (SerialPort.IsOpen)
             {
-
-
                 Thread.Sleep(100);
                 // Read serial data until a '\n' character is recieved
-                string rData = SerialPort.ReadLine();
+                string rData = SerialPort.ReadExisting();
 
                 // If the data is valid then do something with it
                 if (rData != null && rData != "")
@@ -548,17 +556,19 @@ public class UnitySerialPort : MonoBehaviour
                     RawData = rData;
                     // split the raw data into chunks via ',' and store it
                     // into a string array
-                    ChunkData = RawData.Split(',');
-
-                    // Or you could call a function to do something with
-                    // data e.g.
-                    ParseSerialData(ChunkData, RawData);
+                    string[] tmp = RawData.Split('\n');
+                    ChunkData = tmp;
+                    for (int i = 0; i < tmp.Length; i++)
+                    {
+                        if (tmp[i].Length == 0) continue;
+                        UpdateEvent.Invoke(tmp[i].Trim());
+                    }
                 }
             }
         }
         catch (TimeoutException timeout)
         {
-            //Debug.LogError(timeout.Message);
+            // Debug.LogError(timeout.Message);
             // This will be triggered lots with the coroutine method
         }
         catch (Exception ex)
@@ -591,12 +601,6 @@ public class UnitySerialPort : MonoBehaviour
         // Examples of reading a value from the recieved data
         // for use if required - remove or replase with bespoke
         // functionality etc
-        for(int i = 0; i< data.Length; i++)
-        {
-            Debug.Log("DATA" + i + ": " + data[i]);
-        }
-        if (data.Length == 2)
-        { int ReceviedValue = int.Parse(data[1]); }
         //else { print(rawData); }
 
         //if (data == null || data.Length != 2)

@@ -26,7 +26,7 @@ public class ArcadeGameSwitch : MonoBehaviour
         if (ArcadeGameSwitch.instance == null)
         {
             ArcadeGameSwitch.instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            // DontDestroyOnLoad(this.gameObject);
         }
         
         // Start at spawn
@@ -47,8 +47,16 @@ public class ArcadeGameSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // this checks if were in the main arcade, so we dont mess with the player location in game
         if (SceneManager.GetActiveScene().buildIndex == 0) 
         {
+
+            if(TranslationLayer.instance.GetButtonDown(ButtonCode.KeyBack))
+            {
+                // Rotate view 90 degrees
+                Player.transform.Rotate(0,90,0);
+
+            }
             // Sip simulation
             if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyLeft))
             {

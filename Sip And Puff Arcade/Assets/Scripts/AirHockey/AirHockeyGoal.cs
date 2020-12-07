@@ -16,7 +16,7 @@ public class AirHockeyGoal : MonoBehaviour
 
     private void Start()
     {
-        defTableMat = table.GetComponent<MeshRenderer>().materials[0];
+        defTableMat = table.GetComponent<MeshRenderer>().materials[3];
     }
 
     private void Update()
@@ -24,7 +24,8 @@ public class AirHockeyGoal : MonoBehaviour
         if(recentGoal)
         {
             goalTime += Time.deltaTime;
-            if(goalTime > gameWinTime)
+            puck.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            if (goalTime > gameWinTime)
             {
                 recentGoal = false;
                 puck.GetComponent<PuckMovement>().GameReset();
@@ -43,7 +44,8 @@ public class AirHockeyGoal : MonoBehaviour
     private void ChangeTableColor(Material m)
     {
         Material[] mat = table.GetComponent<MeshRenderer>().materials;
-        mat[0] = m;
+        mat[3] = m;
+        mat[4] = m;
         table.GetComponent<MeshRenderer>().materials = mat;
     }
 }

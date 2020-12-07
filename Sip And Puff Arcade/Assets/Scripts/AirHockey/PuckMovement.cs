@@ -10,11 +10,12 @@ public class PuckMovement : MonoBehaviour
     public float maxSpeed = 3;
     public float acceleration = 1.001f;
     public float startSpeed = 2;
-    public GameObject goal1;
-    public GameObject goal2;
+    public GameObject playerGoal;
+    public GameObject enemyGoal;
     public GameObject gameBoundary;
     public Material OOBMat;
     public GameObject table;
+    public GameObject enemyStriker;
     public enum PuckState
     {
         green, red, blue
@@ -23,8 +24,15 @@ public class PuckMovement : MonoBehaviour
     private PuckState state;
     private Rigidbody p;
     private Vector3 puckStart;
+    private Vector3 strikerStart;
     private float oobTimer = 0;
     private bool oob = false;
+
+    // Enables a minor seeking effect towards the enemy goal
+    private readonly bool slidingShiftEnabled = true;
+
+    // Prevents the puck from being stuck bouncing horizontally forever. Highly recommend that this not be turned off at the same time as slidingShift
+    private readonly bool minimumZSpeed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,15 +42,16 @@ public class PuckMovement : MonoBehaviour
         p = puck.GetComponent<Rigidbody>();
         state = PuckState.blue;
         p.velocity = RandomVector(new Vector3(-1,0,-1), new Vector3(1,0,1));
+        strikerStart = enemyStriker.transform.position;
     }
 
     private void LateUpdate()
     {
-        if(p.velocity.magnitude > maxSpeed)
+        if (p.velocity.magnitude > maxSpeed)
         {
-            Vector3.ClampMagnitude(p.velocity, maxSpeed);
+            p.velocity = Vector3.ClampMagnitude(p.velocity, maxSpeed);
         }
-        if(!gameBoundary.GetComponent<BoxCollider>().bounds.Contains(puck.transform.position) || TranslationLayer.instance.GetButtonDown(ButtonCode.KeyBack))
+        if(TranslationLayer.instance.GetButtonDown(ButtonCode.KeyBack))
         {
             oob = true;
             ChangeTableColor(OOBMat);
@@ -61,17 +70,21 @@ public class PuckMovement : MonoBehaviour
                 GameReset();
             }
         }
-        if(Mathf.Abs(p.velocity.z)<0.2 || p.velocity.magnitude < 1)
+        if(state == PuckState.green && slidingShiftEnabled)
         {
-            p.AddExplosionForce(0.05f, puckStart, 10, 0, ForceMode.Acceleration);
+            p.AddForce(GetGoalVector(enemyGoal)*.035f);
         }
-        if(state == PuckState.green)
+        else if(state == PuckState.red && slidingShiftEnabled)
         {
-            p.AddForce(new Vector3(0 , 0, -0.2f));
+            p.AddForce(GetGoalVector(playerGoal)*.035f);
         }
-        else if(state == PuckState.red)
+        else if(slidingShiftEnabled || minimumZSpeed)
         {
-            p.AddForce(new Vector3(0, 0, 0.2f));
+            if (p.velocity.z < 0.2f)
+            {
+                if (p.velocity.z == 0) p.velocity = new Vector3(p.velocity.x, p.velocity.y, 0.01f);
+                p.AddForce((p.velocity.normalized + new Vector3(0, 0, p.velocity.z).normalized).normalized * 0.2f);
+            }
         }
     }
 
@@ -86,6 +99,7 @@ public class PuckMovement : MonoBehaviour
         p.velocity = RandomVector(new Vector3(-1, 0, -1), new Vector3(1, 0, 1));
         SetColor(defaultMat);
         state = PuckState.blue;
+        enemyStriker.transform.position = strikerStart;
     }
 
     private void SetColor(Material m)
@@ -107,10 +121,21 @@ public class PuckMovement : MonoBehaviour
             Vector3 direction = (puck.transform.position - collision.collider.gameObject.transform.position).normalized;
             p.AddForce(direction * 2, ForceMode.VelocityChange);
         }
-        else if(collision.collider.gameObject.CompareTag("AirHockeyBumper"))
+        else if (collision.collider.gameObject.CompareTag("AirHockeyBumper"))
         {
-            Vector3 delta = gameObject.transform.position - collision.GetContact(0).point;
-            p.AddForce(delta.normalized * 4, ForceMode.VelocityChange);
+            string name = collision.collider.gameObject.name;
+            if (name.Contains("Corner"))
+            {
+                p.velocity = new Vector3(-1 * p.velocity.x, p.velocity.y, -1 * p.velocity.z);
+            }
+            else if (name.Contains("Top") || name.Contains("Bottom"))
+            {
+                p.velocity = new Vector3(p.velocity.x, p.velocity.y, -1 * p.velocity.z);
+            }
+            else if (name.Contains("Right") || name.Contains("Left"))
+            {
+                p.velocity = new Vector3(-1 * p.velocity.x, p.velocity.y, p.velocity.z);
+            }
         }
         if (p.velocity.magnitude > maxSpeed)
         {
@@ -140,21 +165,35 @@ public class PuckMovement : MonoBehaviour
             Vector3 direction = (puck.transform.position - collision.collider.gameObject.transform.position).normalized;
             p.AddForce(direction * 2, ForceMode.VelocityChange);
         }
-        else if (collision.collider.gameObject.CompareTag("AirHockeyBumper"))
-        {
-            Vector3 delta = gameObject.transform.position - collision.GetContact(0).point;
-            p.AddForce(delta.normalized * 4, ForceMode.VelocityChange);
-        }
         if (p.velocity.magnitude > maxSpeed)
         {
             p.velocity = Vector3.ClampMagnitude(p.velocity, maxSpeed);
         }
 
     }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.collider.gameObject.CompareTag("AirhockeyBoundaries"))
+        {
+            oob = true;
+            ChangeTableColor(OOBMat);
+            p.velocity = new Vector3(0, 0, 0);
+            puck.transform.position = puckStart;
+        }
+    }
+
     private void ChangeTableColor(Material m)
     {
         Material[] mat = table.GetComponent<MeshRenderer>().materials;
-        mat[0] = m;
+        mat[3] = m;
+        mat[4] = m;
         table.GetComponent<MeshRenderer>().materials = mat;
+    }
+
+    private Vector3 GetGoalVector(GameObject goal)
+    {
+        Vector3 deltaPos = goal.transform.position - puck.transform.position;
+        return deltaPos.normalized;
     }
 }
