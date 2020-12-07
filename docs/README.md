@@ -1,8 +1,6 @@
-# The Architect theme
+# Sip and Puff VR Arcade
 
-[![Build Status](https://travis-ci.org/pages-themes/architect.svg?branch=master)](https://travis-ci.org/pages-themes/architect) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-architect.svg)](https://badge.fury.io/rb/jekyll-theme-architect)
-
-*Architect is a Jekyll theme for GitHub Pages. You can [preview the theme to see what it looks like](http://pages-themes.github.io/architect), or even [use it today](#usage).*
+*An Evil Mango VR Project for the University of Utah Health Department*
 
 ![Thumbnail of Architect](thumbnail.png)
 
