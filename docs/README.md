@@ -4,21 +4,26 @@
 
 ![Thumbnail of Architect](thumbnail.png)
 
-## Usage
+## About Us
 
-To use the Architect theme:
+- Team Name: Evil Mango Studio
+- Location: Salt Lake City, Utah
+- Release Date: 12/9/2020
+- Platforms: Steam VR Capable Hardware (HTC Vive, Oculus)
 
-1. Add the following to your site's `_config.yml`:
+### Description
 
-    ```yml
-    theme: jekyll-theme-architect
-    ```
+Sip and Puff Arcade is a nostalgic arcade where simple, timeless games are brought to life in a whole new way with a specific emphasis on accessibility. Using classic arcade games, we hope to be able to aid in the training of the use of the Sip and Puff controller, a straw like device used to interact with the world using your breath. Each different game seeks to aid the user with their ability to use the sip and puff device in a controlled way.
 
-2. Optionally, if you'd like to preview your site on your computer, add the following to your site's `Gemfile`:
+### History
 
-    ```ruby
-    gem "github-pages", group: :jekyll_plugins
-    ```
+The CS 5360 Virtual Reality couse at the University of Utah was a project base coursed. As a group, we decided to implement a Virtual Reality Arcade. After hearing some of the external project pitch ideas, specifically the Sip and Puff project, we decided to make our project an accecibility training application by implementing the game through the use of the Sip and Puff controller. We were inspired by the opertunity to create a fun and creative game with a real purpose.
+
+
+### Features
+
+
+
 
 ## Customizing
 
