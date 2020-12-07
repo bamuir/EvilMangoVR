@@ -26,7 +26,7 @@ public class RespawnEnemy : MonoBehaviour
     private void Update()
     {
         time += Time.time;
-        if (dead && time >= 10000)
+        if (dead && time >= 5000)
         {
             Reset(enemies[0]);
             enemies.RemoveAt(0);

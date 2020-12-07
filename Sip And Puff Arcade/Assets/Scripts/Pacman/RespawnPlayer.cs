@@ -29,7 +29,7 @@ public class RespawnPlayer : MonoBehaviour
     void Start()
     {
         startingPos = gameObject.transform.position;
-        Lives(lives);
+        //Lives(lives);
     }
 
     // Update is called once per frame
@@ -48,6 +48,10 @@ public class RespawnPlayer : MonoBehaviour
             lives++;
             Lives(lives);
             kills = 0;
+        }
+        else
+        {
+            Lives(lives);
         }
     }
 

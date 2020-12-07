@@ -22,7 +22,7 @@ public class ScoreAndLives : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        scoreText.text = totalScore.ToString();
     }
 
     void IncreaseScore(int score)
