@@ -2114,7 +2114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2429668020444625792}
   m_Layer: 0
-  m_Name: PacManRedoneBam
+  m_Name: PuffManFinal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5000,7 +5000,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2429668021124174845}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!222 &1953113831929131459
 CanvasRenderer:
   m_ObjectHideFlags: 0

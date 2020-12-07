@@ -6,9 +6,19 @@ public class ResetObjects : MonoBehaviour
 {
     List<GameObject> collectibles;
 
-    private void Start()
+    private void OnEnable()
     {
         ResetGame.ResetCoinsAndPotions += ResetCollectibles;
+    }
+
+    private void OnDisable()
+    {
+        ResetGame.ResetCoinsAndPotions -= ResetCollectibles;
+    }
+
+    private void Start()
+    {
+        
         //collectibles = new List<GameObject>();
 
         collectibles = new List<GameObject>(GameObject.FindGameObjectsWithTag("Coin"));

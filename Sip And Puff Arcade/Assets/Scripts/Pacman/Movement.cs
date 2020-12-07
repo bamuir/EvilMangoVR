@@ -19,10 +19,16 @@ public class Movement : MonoBehaviour
     Node previousNode;
     public Node initialNode;
 
-    private void Awake()
+    private void OnEnable()
     {
         RespawnPlayer.Respawned += ResetPlayer;
         ResetGame.ResetPuffman += ResetPlayer;
+    }
+
+    private void OnDisable()
+    {
+        RespawnPlayer.Respawned -= ResetPlayer;
+        ResetGame.ResetPuffman -= ResetPlayer;
     }
 
     // Start is called before the first frame update

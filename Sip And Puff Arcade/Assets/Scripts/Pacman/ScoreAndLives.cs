@@ -10,14 +10,26 @@ public class ScoreAndLives : MonoBehaviour
     public Text livesText;
 
 
+    private void OnEnable()
+    {
+        RespawnPlayer.Score += IncreaseScore;
+        RespawnPlayer.Lives += UpdateLives;
+        ResetGame.ResetLivesAndScore += ResetInfo;
+    }
+
+    private void OnDisable()
+    {
+        RespawnPlayer.Score -= IncreaseScore;
+        RespawnPlayer.Lives -= UpdateLives;
+        ResetGame.ResetLivesAndScore -= ResetInfo;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         totalScore = 0;
         scoreText.text = "0";
-        RespawnPlayer.Score += IncreaseScore;
-        RespawnPlayer.Lives += UpdateLives;
-        ResetGame.ResetLivesAndScore += ResetInfo;
+        
     }
 
     // Update is called once per frame
@@ -40,5 +52,6 @@ public class ScoreAndLives : MonoBehaviour
     {
         totalScore = 0;
         scoreText.text = "0";
+        //UpdateLives(0);
     }
 }

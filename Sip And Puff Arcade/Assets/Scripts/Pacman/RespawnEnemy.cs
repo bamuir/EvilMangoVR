@@ -16,15 +16,21 @@ public class RespawnEnemy : MonoBehaviour
     public delegate void ResetWaypoint(GameObject enemy);
     public static event ResetWaypoint Reset;
 
-    private void Awake()
+    private void OnEnable()
     {
+        RespawnPlayer.Respawn += RespawnEnemies;
+        ResetGame.ResetEnemies += ResetEnemies;
+    }
 
+    private void OnDisable()
+    {
+        RespawnPlayer.Respawn -= RespawnEnemies;
+        ResetGame.ResetEnemies -= ResetEnemies;
     }
     // Start is called before the first frame update
     void Start()
     {
-        RespawnPlayer.Respawn += RespawnEnemies;
-        ResetGame.ResetEnemies += ResetEnemies;
+        
         enemies = new List<GameObject>();
         initialPositions = new List<Vector3>();
 

@@ -32,14 +32,23 @@ public class RespawnPlayer : MonoBehaviour
     public delegate void IncrementLives(int lives);
     public static event IncrementLives Lives;
 
+
+    private void OnEnable()
+    {
+        ResetGame.ResetPuffman += ResetPlayerPowerUps;
+    }
+
+    private void OnDisable()
+    {
+        ResetGame.ResetPuffman -= ResetPlayerPowerUps;
+    }
     // Start is called before the first frame update
     void Start()
     {
         startingPos = gameObject.transform.position;
         sr = gameObject.GetComponent<SpriteRenderer>();
-        ResetGame.ResetPuffman += ResetPlayerPowerUps;
-        //Lives(lives);
         startingLives = lives;
+        //Lives(lives);
     }
 
     // Update is called once per frame
@@ -93,6 +102,7 @@ public class RespawnPlayer : MonoBehaviour
                 Lives(lives);
                 if (lives <= 0)
                 {
+                    //lives = startingLives;
                     gameObject.SetActive(false);
                 }
                 else
