@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 973674117588374481}
   - component: {fileID: 951376814809956393}
   - component: {fileID: 3613588004371103978}
+  - component: {fileID: 958923617990664060}
   m_Layer: 0
   m_Name: BottomRightCornerBumper
   m_TagString: AirHockeyBumper
@@ -161,6 +162,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &958923617990664060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153920524435893064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca22d43030927499e87c22f09b4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1175897200994559659
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +185,7 @@ GameObject:
   - component: {fileID: 4807181534557580828}
   - component: {fileID: 5175188515819888038}
   - component: {fileID: 6715260098316197646}
+  - component: {fileID: 3059852861034054257}
   m_Layer: 0
   m_Name: BottomLeftBumper
   m_TagString: AirHockeyBumper
@@ -222,6 +236,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &3059852861034054257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175897200994559659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca22d43030927499e87c22f09b4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1247912858765644417
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +320,7 @@ GameObject:
   - component: {fileID: 2247856676434110694}
   - component: {fileID: 2761463407690828304}
   - component: {fileID: 3704808577134153238}
+  - component: {fileID: 2201728124873339739}
   m_Layer: 0
   m_Name: TopRightCornerBumper
   m_TagString: AirHockeyBumper
@@ -344,6 +371,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &2201728124873339739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642712247523153795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca22d43030927499e87c22f09b4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2321494042284626218
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +394,7 @@ GameObject:
   - component: {fileID: 9093446217023799746}
   - component: {fileID: 2390829944214994148}
   - component: {fileID: 3052049096092948003}
+  - component: {fileID: 5589537592746495999}
   m_Layer: 0
   m_Name: TopRightBumper
   m_TagString: AirHockeyBumper
@@ -405,6 +445,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &5589537592746495999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2321494042284626218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca22d43030927499e87c22f09b4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &2083217823
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -472,6 +524,7 @@ GameObject:
   - component: {fileID: 5899017845903817805}
   - component: {fileID: 3234792170991826366}
   - component: {fileID: 9215779701974972010}
+  - component: {fileID: 7024158482177191143}
   m_Layer: 0
   m_Name: LeftBumper
   m_TagString: AirHockeyBumper
@@ -488,7 +541,7 @@ Transform:
   m_GameObject: {fileID: 3143350189177505323}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -11.464, y: 12.021288, z: -0.099995635}
-  m_LocalScale: {x: 0.1, y: 0.04, z: 3}
+  m_LocalScale: {x: 0.1, y: 0.04, z: 3.3}
   m_Children: []
   m_Father: {fileID: 522103634726740805}
   m_RootOrder: 1
@@ -522,6 +575,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &7024158482177191143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3143350189177505323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca22d43030927499e87c22f09b4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4070398319885353822
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +598,7 @@ GameObject:
   - component: {fileID: 1198232629508994513}
   - component: {fileID: 6120602278748474436}
   - component: {fileID: 339941579372860311}
+  - component: {fileID: 8377514973352538632}
   m_Layer: 0
   m_Name: RightBumper
   m_TagString: AirHockeyBumper
@@ -549,7 +615,7 @@ Transform:
   m_GameObject: {fileID: 4070398319885353822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -13.27, y: 12.021288, z: -0.09999468}
-  m_LocalScale: {x: 0.1, y: 0.04, z: 3}
+  m_LocalScale: {x: 0.1, y: 0.04, z: 3.3}
   m_Children: []
   m_Father: {fileID: 522103634726740805}
   m_RootOrder: 0
@@ -583,6 +649,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &8377514973352538632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4070398319885353822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca22d43030927499e87c22f09b4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5332317227583402069
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,6 +672,7 @@ GameObject:
   - component: {fileID: 6535330596228658097}
   - component: {fileID: 9091348561782238609}
   - component: {fileID: 1834180099817396081}
+  - component: {fileID: 8098935725899682653}
   m_Layer: 0
   m_Name: BottomLeftCornerBumper
   m_TagString: AirHockeyBumper
@@ -644,6 +723,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &8098935725899682653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5332317227583402069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca22d43030927499e87c22f09b4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5686770232692701727
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,6 +746,7 @@ GameObject:
   - component: {fileID: 2378347957721441929}
   - component: {fileID: 4685488791239397382}
   - component: {fileID: 3854195873399883249}
+  - component: {fileID: 2003854285092711851}
   m_Layer: 0
   m_Name: TopLeftBumper
   m_TagString: AirHockeyBumper
@@ -705,6 +797,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &2003854285092711851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686770232692701727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca22d43030927499e87c22f09b4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6142230947694334275
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +820,7 @@ GameObject:
   - component: {fileID: 3988633364494992514}
   - component: {fileID: 3769163391246052513}
   - component: {fileID: 1141957230295782305}
+  - component: {fileID: 7764486423738639374}
   m_Layer: 0
   m_Name: TopLeftCornerBumper
   m_TagString: AirHockeyBumper
@@ -766,6 +871,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &7764486423738639374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6142230947694334275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca22d43030927499e87c22f09b4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7019229353507518544
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +1021,7 @@ GameObject:
   - component: {fileID: 2745310432458929996}
   - component: {fileID: 1821166578431278776}
   - component: {fileID: 4947993504118508334}
+  - component: {fileID: 7254659955073686116}
   m_Layer: 0
   m_Name: BottomRightBumper
   m_TagString: AirHockeyBumper
@@ -954,6 +1072,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!114 &7254659955073686116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777394196265269808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dca22d43030927499e87c22f09b4107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &7778068629369692081
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1125,14 +1255,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d961afa2a1c79bb40a071c478abc0066, type: 3}
---- !u!4 &543450653046322241 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d961afa2a1c79bb40a071c478abc0066, type: 3}
-  m_PrefabInstance: {fileID: 695915434}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919132148776562427 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d961afa2a1c79bb40a071c478abc0066, type: 3}
+  m_PrefabInstance: {fileID: 695915434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &543450653046322241 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d961afa2a1c79bb40a071c478abc0066, type: 3}
   m_PrefabInstance: {fileID: 695915434}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3120915556364030520
@@ -1208,14 +1338,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d961afa2a1c79bb40a071c478abc0066, type: 3}
---- !u!1 &2850446477843279721 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d961afa2a1c79bb40a071c478abc0066, type: 3}
-  m_PrefabInstance: {fileID: 3120915556364030520}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3225986171484829139 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d961afa2a1c79bb40a071c478abc0066, type: 3}
+  m_PrefabInstance: {fileID: 3120915556364030520}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2850446477843279721 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d961afa2a1c79bb40a071c478abc0066, type: 3}
   m_PrefabInstance: {fileID: 3120915556364030520}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4574414650916512265
@@ -1385,14 +1515,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9c2d9808dc8512478edfcbfd325ed8b, type: 3}
---- !u!1 &6118445700719825681 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f9c2d9808dc8512478edfcbfd325ed8b, type: 3}
-  m_PrefabInstance: {fileID: 6352463765461986880}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6891287388192737707 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f9c2d9808dc8512478edfcbfd325ed8b, type: 3}
+  m_PrefabInstance: {fileID: 6352463765461986880}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6118445700719825681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f9c2d9808dc8512478edfcbfd325ed8b, type: 3}
   m_PrefabInstance: {fileID: 6352463765461986880}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7748823935402444313
@@ -1472,14 +1602,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bdd94d3489d1e8418f8e74b5403ff3a, type: 3}
---- !u!1 &7442255015868644168 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2bdd94d3489d1e8418f8e74b5403ff3a, type: 3}
-  m_PrefabInstance: {fileID: 7748823935402444313}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7783314363674812914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2bdd94d3489d1e8418f8e74b5403ff3a, type: 3}
+  m_PrefabInstance: {fileID: 7748823935402444313}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7442255015868644168 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2bdd94d3489d1e8418f8e74b5403ff3a, type: 3}
   m_PrefabInstance: {fileID: 7748823935402444313}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9066303705569039203
@@ -1571,13 +1701,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8577ce6259f086649b25d7274a357710, type: 3}
---- !u!1 &8147173348490423858 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8577ce6259f086649b25d7274a357710, type: 3}
-  m_PrefabInstance: {fileID: 9066303705569039203}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8816713616183882888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8577ce6259f086649b25d7274a357710, type: 3}
+  m_PrefabInstance: {fileID: 9066303705569039203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8147173348490423858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8577ce6259f086649b25d7274a357710, type: 3}
   m_PrefabInstance: {fileID: 9066303705569039203}
   m_PrefabAsset: {fileID: 0}
