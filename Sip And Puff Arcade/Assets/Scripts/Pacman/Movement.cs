@@ -67,6 +67,17 @@ public class Movement : MonoBehaviour
     {
         if (targetNode != currentNode && targetNode != null)
         {
+            if (nextDirection == (currentDirection * -1))
+            {
+                currentDirection *= -1;
+
+                Node tempNode = targetNode;
+
+                targetNode = previousNode;
+
+                previousNode = tempNode;
+            }
+
             if (IsInBounds())
             {
                 currentNode = targetNode;
