@@ -25,3 +25,9 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 - Accessibility: Ability to use the Sip and Puff controler to play games in Virtual Reality
 - Training: Trains people to use the Sip and Puff device accurately in real life
 
+### Feature Video
+
+<iframe width="420" height="315"
+  src="https://www.youtube.com/embed/tgbNymZ7vqY%22%3E">
+</iframe>
+
