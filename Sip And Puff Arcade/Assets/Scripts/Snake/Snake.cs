@@ -70,7 +70,7 @@ public class Snake : MonoBehaviour
         selectIsOnStart = true;
         inDifMenu = false;
         timePerMove = 0.5f;
-        menuTime = 0.1f;
+        menuTime = 0.5f;
         countTime = 1;
         moveTimer = menuTime;
         countNum = 3;
@@ -170,10 +170,12 @@ public class Snake : MonoBehaviour
 
         if (moveTimer >= menuTime)
         {
+           
             // move left if user is currently toggeling 'difficutly' section and is in start menu
             // decrease speed if user is in difficulty menu
             if (TranslationLayer.instance.GetButton(ButtonCode.KeyLeft))
             {
+                moveTimer -= menuTime;
                 if (!inDifMenu && !selectIsOnStart)
                 {
                     selectIsOnStart = !selectIsOnStart;
@@ -191,6 +193,7 @@ public class Snake : MonoBehaviour
             // increase speed if user is in difficulty menu
             else if (TranslationLayer.instance.GetButton(ButtonCode.KeyRight))
             {
+                moveTimer -= menuTime;
                 if (!inDifMenu && selectIsOnStart)
                 {
                     selectIsOnStart = !selectIsOnStart;
@@ -208,12 +211,12 @@ public class Snake : MonoBehaviour
             // 'difficulty', go back to start menu if user is in difficulty menu.
             else if (TranslationLayer.instance.GetButton(ButtonCode.KeyFoward))
             {
+                moveTimer -= menuTime;
                 // if user selected start
                 if (selectIsOnStart && !inDifMenu)
                 {
                     grid.SpawnFood();
                     GameHandler.StartGame();
-                    moveTimer = countTime;
                     return;
                 }
 
@@ -237,7 +240,8 @@ public class Snake : MonoBehaviour
                
             }
 
-            moveTimer -= menuTime;
+            // if no button is pushed
+            moveTimer -= Time.deltaTime;
         }
     }
 
