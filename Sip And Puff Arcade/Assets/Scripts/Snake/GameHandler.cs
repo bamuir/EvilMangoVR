@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Globalization;
 
+/**
+ * Handles label values such as score, length, etc. Handles game state (is snake alive, has game started
+ * what menu the user is on)
+ */
 public class GameHandler : MonoBehaviour
 {
     private static GameHandler instance;

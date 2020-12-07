@@ -4,86 +4,175 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed;
+    public float speed = 4.0f;
     Vector2 dest = Vector2.zero;
-    enum Direction { Stopped, Left, Right, Up, Down};
-    Direction currentDirection = Direction.Right;
+    //enum Direction { Stopped, Left, Right, Up, Down};
+    //Direction currentDirection = Direction.Right;
+    Vector2 currentDirection;
+    Vector2 nextDirection;
 
-    float move;
+    //float move;
     Vector2 movement;
 
-    private void Awake()
+    Node currentNode;
+    Node targetNode;
+    Node previousNode;
+    public Node initialNode;
+
+    private void OnEnable()
     {
         RespawnPlayer.Respawned += ResetPlayer;
+        ResetGame.ResetPuffman += ResetPlayer;
+    }
+
+    private void OnDisable()
+    {
+        RespawnPlayer.Respawned -= ResetPlayer;
+        ResetGame.ResetPuffman -= ResetPlayer;
     }
 
     // Start is called before the first frame update
     void Start()
     {
         dest = transform.position;
+
+        currentNode = initialNode;
+        currentDirection = Vector2.right;
+        ChangeDirection(currentDirection);
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
-        Vector2 dir = dest - (Vector2)transform.position;
-        
-        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyFoward) && Valid(Vector2.up))
+        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyFoward))
         {
-            currentDirection = Direction.Up;
+            ChangeDirection(Vector2.up);
         }
-        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyRight) && Valid(Vector2.right))
+        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyRight))
         {
-            currentDirection = Direction.Right;
+            ChangeDirection(Vector2.right);
         }
-        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyBack) && Valid(-Vector2.up))
+        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyBack))
         {
-            currentDirection = Direction.Down;
+            ChangeDirection(Vector2.down);
         }
-        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyLeft) && Valid(-Vector2.right))
+        if (TranslationLayer.instance.GetButtonDown(ButtonCode.KeyLeft))
         {
-            currentDirection = Direction.Left;
+            ChangeDirection(Vector2.left);
         }
-
-
-        if (currentDirection == Direction.Up)
-        {
-            movement = new Vector2 (0, speed * 1.0f);
-            dir = new Vector2(0, 0.2f);
-        }
-        if (currentDirection == Direction.Right)
-        {
-            movement = new Vector2(speed * 1.0f, 0);
-            dir = new Vector2(0.2f, 0);
-        }
-        if (currentDirection == Direction.Down)
-        {
-            movement = new Vector2(0, -speed * 1.0f);
-            dir = new Vector2(0, -0.2f);
-        }
-        if (currentDirection == Direction.Left)
-        {
-            movement = new Vector2(-speed * 1.0f, 0);
-            dir = new Vector2(-0.2f, 0);
-        }
-
-        GetComponent<Rigidbody2D>().velocity = movement;
-
-        //Vector2 dir = dest - (Vector2)transform.position;
-        //GetComponent<Animator>().SetFloat("DirX", dir.x);
-        //GetComponent<Animator>().SetFloat("DirY", dir.y);
+        PlayerMovement();
     }
 
-    bool Valid(Vector2 dir)
+    void PlayerMovement()
     {
-        Vector2 position = transform.position;
-        RaycastHit2D hit = Physics2D.Linecast(position + dir, position);
-        return (hit.collider == GetComponent<Collider2D>());
+        if (targetNode != currentNode && targetNode != null)
+        {
+            if (nextDirection == (currentDirection * -1))
+            {
+                currentDirection *= -1;
+
+                Node tempNode = targetNode;
+
+                targetNode = previousNode;
+
+                previousNode = tempNode;
+            }
+
+            if (IsInBounds())
+            {
+                currentNode = targetNode;
+
+                transform.position = currentNode.transform.position;
+
+                Node n = Valid(nextDirection);
+
+                if (n)
+                {
+                    currentDirection = nextDirection;
+                }
+                else
+                {
+                    n = Valid(currentDirection);
+                }
+
+                if (n)
+                {
+                    targetNode = n;
+                    previousNode = currentNode;
+                    currentNode = null;
+                }
+                else
+                {
+                    currentDirection = Vector2.zero;
+                }
+            }
+            else
+            {
+                transform.position += (Vector3)(currentDirection * speed) * Time.deltaTime;
+            }
+        }
+    }
+
+    void ChangeDirection(Vector2 dir)
+    {
+        if (dir != currentDirection)
+        {
+            nextDirection = dir;
+        }
+
+        if (currentNode)
+        {
+            Node n = Valid(dir);
+
+            if (n)
+            {
+                currentDirection = dir;
+                targetNode = n;
+                previousNode = currentNode;
+                currentNode = null;
+            }
+        }
+    }
+
+    Node Valid(Vector2 dir)
+    {
+        Node potentialNode = null;
+
+        for (int i = 0; i < currentNode.neighbors.Count; i++)
+        {
+            if (currentNode.valid[i] == dir)
+            {
+                potentialNode = currentNode.neighbors[i];
+                break;
+            }
+        }
+
+        return potentialNode;
     }
 
     void ResetPlayer(Vector3 startingPos)
     {
         gameObject.transform.position = startingPos;
-        currentDirection = Direction.Right;
+
+        currentNode = initialNode;
+        previousNode = null;
+        targetNode = null;
+        currentDirection = Vector2.right;
+        nextDirection = Vector2.zero;
+        ChangeDirection(currentDirection);
+    }
+
+    float LengthBetweenNodes(Vector2 target)
+    {
+        Vector2 v = target - (Vector2)previousNode.transform.position;
+        return v.sqrMagnitude;
+    }
+
+    bool IsInBounds()
+    {
+        float target = LengthBetweenNodes(targetNode.transform.position);
+        float pos = LengthBetweenNodes(transform.position);
+
+        return pos > target;
     }
 }

@@ -18,11 +18,16 @@ public class EnemyMovement : MonoBehaviour
     //float time = 0.0f;
     //bool dead = false;
 
-    
 
-    private void Awake()
+
+    private void OnEnable()
     {
         RespawnEnemy.Reset += ResetWaypoint;
+    }
+
+    private void OnDisable()
+    {
+        RespawnEnemy.Reset -= ResetWaypoint;
     }
 
     private void Start()
@@ -57,8 +62,7 @@ public class EnemyMovement : MonoBehaviour
         {
             currentPoint = 0;
             gameObject.transform.position = startingPosition;
-            gameObject.SetActive(true);
+            enemy.SetActive(true);
         }
     }
-
 }
