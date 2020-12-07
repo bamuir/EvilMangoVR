@@ -22,6 +22,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         RespawnPlayer.Respawned += ResetPlayer;
+        ResetGame.ResetPuffman += ResetPlayer;
     }
 
     // Start is called before the first frame update
@@ -140,6 +141,7 @@ public class Movement : MonoBehaviour
         previousNode = null;
         targetNode = null;
         currentDirection = Vector2.right;
+        nextDirection = Vector2.zero;
         ChangeDirection(currentDirection);
     }
 

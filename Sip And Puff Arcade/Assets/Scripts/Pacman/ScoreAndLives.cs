@@ -17,6 +17,7 @@ public class ScoreAndLives : MonoBehaviour
         scoreText.text = "0";
         RespawnPlayer.Score += IncreaseScore;
         RespawnPlayer.Lives += UpdateLives;
+        ResetGame.ResetLivesAndScore += ResetInfo;
     }
 
     // Update is called once per frame
@@ -33,5 +34,11 @@ public class ScoreAndLives : MonoBehaviour
     void UpdateLives(int currentLives)
     {
         livesText.text = currentLives.ToString();
+    }
+
+    void ResetInfo()
+    {
+        totalScore = 0;
+        scoreText.text = "0";
     }
 }
