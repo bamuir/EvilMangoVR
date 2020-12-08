@@ -25,7 +25,7 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 - Training: Trains people to use the Sip and Puff device accurately in real life
 
 ## Feature Video
-
+### Visual demo of each game in the arcade.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RSS15FFwwLA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 
