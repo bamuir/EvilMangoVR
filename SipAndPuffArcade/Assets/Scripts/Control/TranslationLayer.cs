@@ -78,7 +78,7 @@ public class TranslationLayer : MonoBehaviour
         }
 
         // || SipAndPuffAdapter.GetButtonDown(key) ----> this is breaking the return... idk why its null and cant figure it out
-        return Input.GetKeyDown(systemKey) || VRAdapter.GetButtonDown(key) ;
+        return Input.GetKeyDown(systemKey) || VRAdapter.GetButtonDown(key) || SipAndPuffAdapter.instance.GetButtonDown(key);
     }
     
     /**
@@ -117,6 +117,6 @@ public class TranslationLayer : MonoBehaviour
                 throw new ArgumentException("Unknown KeyCode");
         }
         // || SipAndPuffAdapter.GetButton(key) same as before..
-        return Input.GetKey(systemKey) || VRAdapter.GetButton(key);
+        return Input.GetKey(systemKey) || VRAdapter.GetButton(key) || SipAndPuffAdapter.instance.GetButton(key);
     }
 }

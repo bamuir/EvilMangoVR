@@ -558,6 +558,7 @@ public class UnitySerialPort : MonoBehaviour
                     // into a string array
                     string[] tmp = RawData.Split('\n');
                     ChunkData = tmp;
+                    // Debug.Log(rData);
                     for (int i = 0; i < tmp.Length; i++)
                     {
                         if (tmp[i].Length == 0) continue;

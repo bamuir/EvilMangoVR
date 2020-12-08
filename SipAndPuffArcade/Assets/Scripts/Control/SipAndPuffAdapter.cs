@@ -19,7 +19,7 @@ public class SipAndPuffAdapter : MonoBehaviour
     void HandleUpdate(string newValue)
     {
         // ignore if queue is too full
-        if (CommandQueue.Count < 20 || newValue == "U")
+        if (CommandQueue.Count < 5 || newValue == "U")
         {
             CommandQueue.Enqueue(newValue);
         }
@@ -40,12 +40,16 @@ public class SipAndPuffAdapter : MonoBehaviour
     {
         if (CommandQueue.Count > 0)
         {
-            if (!CommandQueue.TryDequeue(out string nextCommand)) return;
-            changed = nextCommand != thisCommand;
+            if (!CommandQueue.TryDequeue(out string nextCommand) || string.IsNullOrWhiteSpace(nextCommand)) return;
+            if (nextCommand == "U")
+            {
+                changed = false;
+            }
+            else
+            {
+                changed = nextCommand != thisCommand;
+            }
             thisCommand = nextCommand;
-        } else
-        {
-            changed = false;
         }
     }
 
