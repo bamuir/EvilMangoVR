@@ -52,3 +52,18 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 
 #### Airhockey Red Score
 <img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyRedScore.png?raw=true" alt="AirhockeyRedScore">
+
+### Pinball
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/PinballGame.png?raw=true" alt="Pinball">
+
+### Crane Game
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/ClawBottom.png?raw=true" alt="CraneGame">
+
+#### The Claw
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/ClawTop.png?raw=true" alt="CraneGameClaw">
+
+#### Crane Game Pinball View
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/CraneToPinball.png?raw=true" alt="PinballViewCrane">
+
+#### Crane Game Couch View
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/CraneBehindCouch.png?raw=true" alt="CouchViewCranegame">
