@@ -16,7 +16,7 @@ Sip and Puff Arcade is a nostalgic arcade where simple, timeless games are broug
 
 ## History
 
-The CS 5360 Virtual Reality course at the University of Utah was a project base coursed. As a group, we decided to implement a Virtual Reality Arcade. After hearing some of the external project pitch ideas, specifically the Sip and Puff project, we decided to make our project an accessibility training application by implementing the game with accessibility as the main priority. We were inspired by the opportunity to create a fun and creative game with a real purpose, and hopefully create a game that can be played by everyone.
+The CS 5360 Virtual Reality course at the University of Utah was a project base coursed. As a group, we decided to implement a Virtual Reality Arcade. After hearing some of the external project pitch ideas, specifically the Sip and Puff project, we decided to make our project an accessibility training application by implementing the game with accessibility as the main priority. We were inspired by the opportunity to create a fun and creative game with a real purpose that hopefully can be played by everyone.
 
 
 ## Features
