@@ -10,7 +10,7 @@ bool JoyStickAvailbe;
 void setup() {
   Serial.begin(115200);
   sip.setNominalPressure();
-  sip.multiStateTime = 300;
+  sip.multiStateTime = 200;
 }
 
 void loop() {
