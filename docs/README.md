@@ -42,43 +42,43 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 <img src="./SipAndPuffArcadeImages/AirhockeySpawn.png" alt="Airhockey" class="inline">
 
 #### Airhockey Green Hit
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AihockeyGreenPuck.png" alt="AirhockeyGreenHit">
+<img src="./SipAndPuffArcadeImages/AihockeyGreenPuck.png" alt="AirhockeyGreenHit">
 
 #### Airhockey Red Hit
-<img src="/SipAndPuffArcadeImages/AirhockeyRedpuck.png" alt="AirhockeyRedHit">
+<img src="./SipAndPuffArcadeImages/AirhockeyRedpuck.png" alt="AirhockeyRedHit">
 
 #### Airhockey Green Score
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyGreenScore.png" alt="AirhockeyGreenScore">
+<img src="./SipAndPuffArcadeImages/AirhockeyGreenScore.png" alt="AirhockeyGreenScore">
 
 #### Airhockey Red Score
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyRedScore.png" alt="AirhockeyRedScore">
+<img src="./SipAndPuffArcadeImages/AirhockeyRedScore.png" alt="AirhockeyRedScore">
 
 ### Pinball
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/PinballGame.png" alt="Pinball">
+<img src="./SipAndPuffArcadeImages/PinballGame.png" alt="Pinball">
 
 ### Crane Game
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/ClawBottom.png" alt="CraneGame">
+<img src="./SipAndPuffArcadeImages/ClawBottom.png" alt="CraneGame">
 
 #### The Claw
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/ClawTop.png" alt="CraneGameClaw">
+<img src="./SipAndPuffArcadeImages/ClawTop.png" alt="CraneGameClaw">
 
 #### Crane Game Pinball View
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/CraneToPinball.png" alt="PinballViewCrane">
+<img src="./SipAndPuffArcadeImages/CraneToPinball.png" alt="PinballViewCrane">
 
 #### Crane Game Couch View
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/CraneBehindCouch.png" alt="CouchViewCranegame">
+<img src="./SipAndPuffArcadeImages/CraneBehindCouch.png" alt="CouchViewCranegame">
 
 ### Snake
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/SnakeGame.png" alt="SnakeStart">
+<img src="./SipAndPuffArcadeImages/SnakeGame.png" alt="SnakeStart">
 
 #### Snake Difficulty Menu
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/SnakeDifficulty.png" alt="SnakeDifficulty">
+<img src="./SipAndPuffArcadeImages/SnakeDifficulty.png" alt="SnakeDifficulty">
 
 #### Snake Game Start
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/SnakeStart.png" alt="SnakeGameStart">
+<img src="./SipAndPuffArcadeImages/SnakeStart.png" alt="SnakeGameStart">
 
 #### Snake In Game
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/SnakeLength2.png" alt="SnakeInGame">
+<img src="./SipAndPuffArcadeImages/SnakeLength2.png" alt="SnakeInGame">
 
 #### Snake Game Over
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/SnakeGameOver.png" alt="SnakeGameOver">
+<img src="./SipAndPuffArcadeImages/SnakeGameOver.png" alt="SnakeGameOver">
