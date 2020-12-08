@@ -12,11 +12,11 @@
 
 ### Description
 
-Sip and Puff Arcade is a nostalgic arcade where simple, timeless games are brought to life in a whole new way with a specific emphasis on accessibility. Using classic arcade games, we hope to be able to aid in the training of the use of controllers designed for accessibility, such as the University of Utah Sip and Puff device. Each different game seeks to aid the user with their ability to interact with their controller to play games and interact with other devices in the real world.
+Sip and Puff Arcade is a nostalgic arcade where simple, timeless games are brought to life in a whole new way with a specific emphasis on accessibility. Using classic arcade games, we hope to be able to aid in the training of the use of controllers designed for people with disablilites, such as the University of Utah Sip and Puff device. Each different game seeks to aid the user with their ability to interact with their controller to play games and interact with other devices in the real world.
 
 ## History
 
-The CS 5360 Virtual Reality course at the University of Utah was a project base coursed. As a group, we decided to implement a Virtual Reality Arcade. After hearing some of the external project pitch ideas, specifically the Sip and Puff project, we decided to make our project an accessibility training application by implementing the game with accessibility as the main priority. We were inspired by the opportunity to create a fun and creative game with a real purpose, and hopefully create a fun game that can be played by everyone.
+The CS 5360 Virtual Reality course at the University of Utah was a project base coursed. As a group, we decided to implement a Virtual Reality Arcade. After hearing some of the external project pitch ideas, specifically the Sip and Puff project, we decided to make our project an accessibility training application by implementing the game with accessibility as the main priority. We were inspired by the opportunity to create a fun and creative game with a real purpose, and hopefully create a game that can be played by everyone.
 
 
 ## Features
