@@ -61,7 +61,7 @@ The CS 5360 Virtual Reality course at the University of Utah was a project base 
 ## About
 
 ### The Team
-Our team formed remotely through the class Slack. A few of us have worked together in previous CS courses, but for the most part, we all met through this project. Our team name "Evil Mango" came about by needing a team name, so we combined some of our discord names to make a group name. 
+Our team formed remotely through the class Slack channel. A few of us have worked together in previous CS courses, but for the most part, we all met through this project. Our team name "Evil Mango" came about by needing a team name, so we combined some of our discord names to make a group name. 
 
 ### Credits
 - Project Manager: Brayden Muir
