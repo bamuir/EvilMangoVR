@@ -45,7 +45,7 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 ![alt text](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AihockeyGreenPuck.png?raw=true)
 
 ### Airhockey Red Hit
-![alt text](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AihockeyRedpuck.png?raw=true)
+![alt text](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyRedpuck.png?raw=true)
 
 ### Airhockey Green Score
 ![alt text](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyGreenScore.png?raw=true)
