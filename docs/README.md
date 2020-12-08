@@ -36,19 +36,19 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 <img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/MainArcadeSpawn.png?raw=true" alt="SpawnPoint">
 
 ### View of Airhockey and Pinball
-![Image of Airhockey](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeySpawnView.png?raw=true)
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeySpawnView.png?raw=true" alt="AirhockeyView">
 
 ### Airhockey 
-![alt text](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeySpawn.png?raw=true)
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeySpawn.png?raw=true" alt="Airhockey">
 
 #### Airhockey Green Hit
-![alt text](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AihockeyGreenPuck.png?raw=true)
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AihockeyGreenPuck.png?raw=true" alt="AirhockeyGreenHit">
 
 #### Airhockey Red Hit
-![alt text](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyRedpuck.png?raw=true)
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyRedpuck.png?raw=true" alt="AirhockeyRedHit">
 
 #### Airhockey Green Score
-![alt text](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyGreenScore.png?raw=true)
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyGreenScore.png?raw=true" alt="AirhockeyGreenScore">
 
 #### Airhockey Red Score
-![alt text](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyRedScore.png?raw=true)
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyRedScore.png?raw=true" alt="AirhockeyRedScore">
