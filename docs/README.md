@@ -47,10 +47,7 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 <img src="./SipAndPuffArcadeImages/PinballGame.png" alt="Pinball">
 
 ### Crane Game
-<img src="./SipAndPuffArcadeImages/ClawBottom.png" alt="CraneGame">
-
-#### The Claw
-<img src="./SipAndPuffArcadeImages/ClawTop.png" alt="CraneGameClaw">
+<img src="./SipAndPuffArcadeImages/CraneGame.png" alt="CraneGame">
 
 #### Crane Game Couch View
 <img src="./SipAndPuffArcadeImages/CraneBehindCouch.png" alt="CouchViewCranegame">
