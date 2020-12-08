@@ -2,7 +2,6 @@
 
 *An Evil Mango VR Project for the University of Utah Health Department*
 
-![Thumbnail of Architect](thumbnail.png)
 
 ## About Us
 
