@@ -33,10 +33,10 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 ## Images
 
 ### Spawning the first time
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/MainArcadeSpawn.png" alt="SpawnPoint">
+<img src="/SipAndPuffArcadeImages/MainArcadeSpawn.png" alt="SpawnPoint">
 
 ### View of Airhockey and Pinball
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeySpawnView.png" alt="AirhockeyView">
+<img src="/SipAndPuffArcadeImages/AirhockeySpawnView.png" alt="AirhockeyView">
 
 ### Airhockey 
 <img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeySpawn.png" alt="Airhockey">
@@ -45,7 +45,7 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 <img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AihockeyGreenPuck.png" alt="AirhockeyGreenHit">
 
 #### Airhockey Red Hit
-<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyRedpuck.png" alt="AirhockeyRedHit">
+<img src="/SipAndPuffArcadeImages/AirhockeyRedpuck.png" alt="AirhockeyRedHit">
 
 #### Airhockey Green Score
 <img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeyGreenScore.png" alt="AirhockeyGreenScore">
