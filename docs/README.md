@@ -33,7 +33,7 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 ## Images
 
 ### Spawning the first time
-![Image of Spawn](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/MainArcadeSpawn.png?raw=true)
+<img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/MainArcadeSpawn.png?raw=true" alt="SpawnPoint">
 
 ### View of Airhockey and Pinball
 ![Image of Airhockey](https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AirhockeySpawnView.png?raw=true)
