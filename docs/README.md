@@ -33,13 +33,13 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 ## Images
 
 ### Spawning the first time
-![SPAWN](/SipAndPuffArcadeImages/MainArcadeSpawn.png)
+![SPAWN](./SipAndPuffArcadeImages/MainArcadeSpawn.png)
 
 ### View of Airhockey and Pinball
-![VIEWAIRHOCKEY](/SipAndPuffArcadeImages/AirhockeySpawnView.png)
+![VIEWAIRHOCKEY](./SipAndPuffArcadeImages/AirhockeySpawnView.png)
 
 ### Airhockey 
-<img src="/SipAndPuffArcadeImages/AirhockeySpawn.png" alt="Airhockey" class="inline">
+<img src="./SipAndPuffArcadeImages/AirhockeySpawn.png" alt="Airhockey" class="inline">
 
 #### Airhockey Green Hit
 <img src="https://github.com/Bamuir3/EvilMangoVR/blob/master/SipAndPuffArcadeImages/AihockeyGreenPuck.png" alt="AirhockeyGreenHit">
