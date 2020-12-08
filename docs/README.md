@@ -33,7 +33,7 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 ## Images
 
 ### Spawning the first time
-<img src="/SipAndPuffArcadeImages/MainArcadeSpawn.png" alt="SpawnPoint">
+![SPAWN](/SipAndPuffArcadeImages/MainArcadeSpawn.png)
 
 ### View of Airhockey and Pinball
 <img src="/SipAndPuffArcadeImages/AirhockeySpawnView.png" alt="AirhockeyView">
