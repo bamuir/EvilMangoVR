@@ -59,3 +59,6 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 #### Snake In Game
 <img src="./SipAndPuffArcadeImages/SnakeLength2.png" alt="SnakeInGame">
 
+#### PuffMan
+<img src="./SipAndPuffArcadeImages/PuffManDeadSpawn.png" alt="PuffMan">
+
