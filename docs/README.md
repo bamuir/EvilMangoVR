@@ -62,3 +62,26 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 #### PuffMan
 <img src="./SipAndPuffArcadeImages/PuffManDeadSpawn.png" alt="PuffMan">
 
+## About
+
+### The Team
+Our team formed remotely through the class Slack. A few of us have worked together in previous CS courses, but for the most part, we all met through this project. Our team name "Evil Mango" came about by needing a team name, so we combimed some of our discord name handles to make a group name. 
+
+### Credits
+- Project Manager: Brayden Muir
+- Puffman: Robert Kay
+- Airhockey: Dylan Wendt
+- Pinball: Sam Hirsch
+- Snake: Warren Kidman
+- Crane Game: Antonio Arceo
+- Sip and Puff Integration: Sam Hirsch
+- 3D Modeling: Dylan Wendt
+- Textures: Robert Kay
+- Asset Collection: Warren Kidman
+
+### Contact
+- Brayden Muir: u0901746@utah.edu
+- Robert Kay: u0695241@utah.edu
+- Dylan Wendt: u1217864@utah.edu
+- Faculty Sponsor, Rogelio E. Cardona-Rivera: rogelio@cs.utah.edu
+
