@@ -38,20 +38,11 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 ### View of Airhockey and Pinball
 ![VIEWAIRHOCKEY](./SipAndPuffArcadeImages/AirhockeySpawnView.png)
 
-### Airhockey 
-<img src="./SipAndPuffArcadeImages/AirhockeySpawn.png" alt="Airhockey" class="inline">
-
-#### Airhockey Green Hit
-<img src="./SipAndPuffArcadeImages/AihockeyGreenPuck.png" alt="AirhockeyGreenHit">
-
-#### Airhockey Red Hit
+#### Airhockey
 <img src="./SipAndPuffArcadeImages/AirhockeyRedpuck.png" alt="AirhockeyRedHit">
 
-#### Airhockey Green Score
-<img src="./SipAndPuffArcadeImages/AirhockeyGreenScore.png" alt="AirhockeyGreenScore">
-
-#### Airhockey Red Score
-<img src="./SipAndPuffArcadeImages/AirhockeyRedScore.png" alt="AirhockeyRedScore">
+#### Crane Game Pinball View
+<img src="./SipAndPuffArcadeImages/CraneToPinball.png" alt="PinballViewCrane">
 
 ### Pinball
 <img src="./SipAndPuffArcadeImages/PinballGame.png" alt="Pinball">
@@ -62,23 +53,9 @@ The CS 5360 Virtual Reality couse at the University of Utah was a project base c
 #### The Claw
 <img src="./SipAndPuffArcadeImages/ClawTop.png" alt="CraneGameClaw">
 
-#### Crane Game Pinball View
-<img src="./SipAndPuffArcadeImages/CraneToPinball.png" alt="PinballViewCrane">
-
 #### Crane Game Couch View
 <img src="./SipAndPuffArcadeImages/CraneBehindCouch.png" alt="CouchViewCranegame">
-
-### Snake
-<img src="./SipAndPuffArcadeImages/SnakeGame.png" alt="SnakeStart">
-
-#### Snake Difficulty Menu
-<img src="./SipAndPuffArcadeImages/SnakeDifficulty.png" alt="SnakeDifficulty">
-
-#### Snake Game Start
-<img src="./SipAndPuffArcadeImages/SnakeStart.png" alt="SnakeGameStart">
 
 #### Snake In Game
 <img src="./SipAndPuffArcadeImages/SnakeLength2.png" alt="SnakeInGame">
 
-#### Snake Game Over
-<img src="./SipAndPuffArcadeImages/SnakeGameOver.png" alt="SnakeGameOver">
