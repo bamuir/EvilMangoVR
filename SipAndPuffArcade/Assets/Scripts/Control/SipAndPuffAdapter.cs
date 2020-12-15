@@ -59,30 +59,7 @@ public class SipAndPuffAdapter : MonoBehaviour
         {
             return false;
         }
-        string latestData = thisCommand;
-
-        switch (keyCode)
-        {
-            case ButtonCode.KeyFoward:
-                return latestData == "F";
-            case ButtonCode.KeyRight:
-                return latestData == "R";
-            case ButtonCode.KeyBack:
-                return latestData == "B";
-            case ButtonCode.KeyLeft:
-                return latestData == "L";
-            case ButtonCode.KeyExit:
-                return latestData == "ESC";
-            case ButtonCode.KeyComboOne:
-                return latestData == "C1";
-            case ButtonCode.KeyComboTwo:
-                return latestData == "C2";
-            case ButtonCode.KeyComboThree:
-                return latestData == "C3";
-            default:
-                return false;
-        }
-
+        return GetButton(keyCode);
     }
 
     public bool GetButton(ButtonCode keyCode)

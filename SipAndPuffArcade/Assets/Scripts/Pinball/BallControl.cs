@@ -21,6 +21,7 @@ public class BallControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // resets if you press up and down at the same time. Mostly for debugging since it can't be done in the Sip and Puff
         if (TranslationLayer.instance.GetButton(ButtonCode.KeyBack) && TranslationLayer.instance.GetButton(ButtonCode.KeyFoward))
         {
             ResetPosition();

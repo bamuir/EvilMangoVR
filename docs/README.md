@@ -76,9 +76,9 @@ Our team formed remotely through the class Slack channel. A few of us have worke
 - Asset Collection: Warren Kidman
 
 ### Contact
-- Brayden Muir: u0901746@utah.edu
+- Brayden Muir: bamuir3@outlook.com
 - Robert Kay: u0695241@utah.edu
 - Dylan Wendt: u1217864@utah.edu
-- Sam Hirsch: sam.hirsch@utah.edu
+- Sam Hirsch: sam.hirsch66@gmail.com
 - Faculty Sponsor, Rogelio E. Cardona-Rivera: rogelio@cs.utah.edu
 
