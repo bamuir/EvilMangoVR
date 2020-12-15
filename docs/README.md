@@ -31,6 +31,9 @@ The CS 5360 Virtual Reality course at the University of Utah was a project base 
 
 ## Images
 
+### Control Mappings
+<img src="./SipAndPuffArcadeImages/ControlMappings.png" alt="Controls">
+
 ### Spawning the first time
 ![SPAWN](./SipAndPuffArcadeImages/MainArcadeSpawn.png)
 
