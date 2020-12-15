@@ -5,17 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class ArcadeGameSwitch : MonoBehaviour
 {
+    
     public GameObject Player;
+
+    // Entry positions for each game
     public GameObject Spawn;
     public GameObject Airhockey;
     public GameObject Pinball;
-    public GameObject PacMan;
+    public GameObject Puffman;
     public GameObject CraneGame;
     public GameObject Snake;
     public GameObject TicketBooth;
 
+    // Keep track of which game/position the player is in
     private int gameindex;
-  
     private Dictionary<int, GameObject> gamelist;
 
     public static ArcadeGameSwitch instance = null;
@@ -26,7 +29,6 @@ public class ArcadeGameSwitch : MonoBehaviour
         if (ArcadeGameSwitch.instance == null)
         {
             ArcadeGameSwitch.instance = this;
-            // DontDestroyOnLoad(this.gameObject);
         }
         
         // Start at spawn
@@ -37,7 +39,7 @@ public class ArcadeGameSwitch : MonoBehaviour
         gamelist.Add(0, Spawn);
         gamelist.Add(1, Airhockey);
         gamelist.Add(2, Pinball);
-        gamelist.Add(3, PacMan);
+        gamelist.Add(3, Puffman);
         gamelist.Add(4, CraneGame);
         gamelist.Add(5, Snake);
         gamelist.Add(6, TicketBooth);
@@ -64,7 +66,7 @@ public class ArcadeGameSwitch : MonoBehaviour
                 Player.transform.position = gamelist[gameindex].transform.position;
                 Vector3 newPos = gamelist[gameindex].transform.eulerAngles;
 
-                // set rotation and flip 180
+                // set rotation and flip 180... idk why we have to flip.
                 Player.transform.eulerAngles = new Vector3(
                     newPos.x,
                     newPos.y + 180,
@@ -100,43 +102,33 @@ public class ArcadeGameSwitch : MonoBehaviour
                     case 1:
                         // load airhockey
                         SceneManager.LoadScene("Airhockey", LoadSceneMode.Single);
-                        // reset for respawning later
-                        gameindex = 0;
                         break;
 
                     case 2:
                         // load pinball
                         SceneManager.LoadScene("Pinball", LoadSceneMode.Single);
-                        // reset for respawning later
-                        gameindex = 0;
                         break;
 
                     case 3:
-                        // load PacMan
-                        SceneManager.LoadScene("PacMan", LoadSceneMode.Single);
-                        // reset for respawning later
-                        gameindex = 0;
+                        // load Puffman
+                        SceneManager.LoadScene( "Puffman", LoadSceneMode.Single);
                         break;
 
                     case 4:
                         // load cranegame
                         SceneManager.LoadScene("CraneGame", LoadSceneMode.Single);
-                        // reset for respawning later
-                        gameindex = 0;
                         break;
 
                     case 5:
                         // load snake
                         SceneManager.LoadScene("Snake", LoadSceneMode.Single);
-                        // reset for respawning later
-                        gameindex = 0;
                         break;
 
                     case 6:
-                        // load ticket booth? idk why, just here still. will probably delete 
-                        SceneManager.LoadScene("TicketBooth", LoadSceneMode.Single);
-                        // reset for respawning later
-                        gameindex = 0;
+                        // load ticket booth? there is no ticket booth scene.
+                        // Bam was going to make some easter egg from this, or a way of redeeming tickets in the arcade
+                        // It was a short semester...
+                        // SceneManager.LoadScene("TicketBooth", LoadSceneMode.Single);
                         break;
 
                     default:
